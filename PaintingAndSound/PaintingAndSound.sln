@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.DB", "PaintingAndSound.DB\PaintingAndSound.DB.csproj", "{FA42FDFB-88A2-4791-A39B-B80B214EF55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.AdminUI", "PaintingAndSound.AdminUI\PaintingAndSound.AdminUI.csproj", "{AD6C98F7-B49B-4350-BA39-F815299305B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2665C691-B606-4C4D-B800-D99ECF3A1704}
+	EndGlobalSection
+EndGlobal
