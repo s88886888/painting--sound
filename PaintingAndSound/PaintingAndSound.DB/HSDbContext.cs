@@ -25,7 +25,7 @@ namespace PaintingAndSound.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("ConnectionStrings");
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QAQ123;User Id=sa;Password=123456");
             }
         }
     }

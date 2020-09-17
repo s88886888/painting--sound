@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PaintingAndSound.DB.Migrations
 {
-    public partial class QAQ1 : Migration
+    public partial class QAQ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
@@ -35,7 +35,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
@@ -57,7 +57,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
@@ -80,7 +80,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
@@ -104,7 +104,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
@@ -127,7 +127,7 @@ namespace PaintingAndSound.DB.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),

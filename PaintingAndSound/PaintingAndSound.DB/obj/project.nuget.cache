@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1kPBUa4p7FFOt8l3TZST6E0sVX4SQp4KFRdSj1UNA4dgOB0EOiNOs+I3Jd+4asUs2NHqKJLlKib9gYWBP5hfig==",
+  "dgSpecHash": "89W49wY2HYkI0+vh+DTFnDZZ1inOzfTgLK2IHNn9zRpqnGTw9zLwjYrseI/fCOIRKbvCcmbOdhemqr3jjz31pA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
+  "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

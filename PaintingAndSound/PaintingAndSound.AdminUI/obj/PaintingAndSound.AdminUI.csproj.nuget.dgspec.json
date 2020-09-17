@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj": {}
+    "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj": {
+    "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj",
+        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj",
         "projectName": "PaintingAndSound.AdminUI",
-        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj",
+        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.AdminUI\\PaintingAndSound.AdminUI.csproj",
         "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.AdminUI\\obj\\",
+        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.AdminUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\大大卷泡泡乐\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj": {
-                "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj"
+              "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj": {
+                "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj"
               }
             }
           }
@@ -71,14 +71,14 @@
         }
       }
     },
-    "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj": {
+    "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
+        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
         "projectName": "PaintingAndSound.DB",
-        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
+        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj",
         "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.1\\PaintingAndSound\\PaintingAndSound.DB\\obj\\",
+        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\大大卷泡泡乐\\AppData\\Roaming\\NuGet\\NuGet.Config",
