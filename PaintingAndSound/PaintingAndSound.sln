@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.API", "Pai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.DAL", "PaintingAndSound.DAL\PaintingAndSound.DAL.csproj", "{348EA805-847F-44C6-9903-4397D0519045}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.BLL", "PaintingAndSound.BLL\PaintingAndSound.BLL.csproj", "{CC60AEE7-5861-4CFF-B2D6-AE9E85260519}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{348EA805-847F-44C6-9903-4397D0519045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{348EA805-847F-44C6-9903-4397D0519045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{348EA805-847F-44C6-9903-4397D0519045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC60AEE7-5861-4CFF-B2D6-AE9E85260519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC60AEE7-5861-4CFF-B2D6-AE9E85260519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC60AEE7-5861-4CFF-B2D6-AE9E85260519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC60AEE7-5861-4CFF-B2D6-AE9E85260519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
