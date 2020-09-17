@@ -10,8 +10,8 @@ using PaintingAndSound.DB;
 namespace PaintingAndSound.DB.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    [Migration("20200917081244_QAQ")]
-    partial class QAQ
+    [Migration("20200917093403_QAQA")]
+    partial class QAQA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,8 +41,6 @@ namespace PaintingAndSound.DB.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Fans");
                 });
@@ -166,6 +164,36 @@ namespace PaintingAndSound.DB.Migrations
                     b.ToTable("RadioComments");
                 });
 
+            modelBuilder.Entity("PaintingAndSound.DB.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TeamNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamSynopsis")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team");
+                });
+
             modelBuilder.Entity("PaintingAndSound.DB.User", b =>
                 {
                     b.Property<int>("Id")
@@ -179,7 +207,10 @@ namespace PaintingAndSound.DB.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FansId")
+                    b.Property<int>("FansCount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FansId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDelete")
@@ -188,10 +219,7 @@ namespace PaintingAndSound.DB.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PaintingId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PassWodr")
+                    b.Property<string>("PassWord")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -200,24 +228,19 @@ namespace PaintingAndSound.DB.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RadioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Synopsis")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
-                });
+                    b.HasIndex("FansId");
 
-            modelBuilder.Entity("PaintingAndSound.DB.Fans", b =>
-                {
-                    b.HasOne("PaintingAndSound.DB.User", "Users")
-                        .WithMany("Fanss")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PaintingAndSound.DB.Painting", b =>
@@ -254,6 +277,17 @@ namespace PaintingAndSound.DB.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PaintingAndSound.DB.User", b =>
+                {
+                    b.HasOne("PaintingAndSound.DB.Fans", null)
+                        .WithMany("Users")
+                        .HasForeignKey("FansId");
+
+                    b.HasOne("PaintingAndSound.DB.Team", null)
+                        .WithMany("Users")
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }

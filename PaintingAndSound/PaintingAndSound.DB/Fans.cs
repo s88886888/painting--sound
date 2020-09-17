@@ -10,7 +10,7 @@ namespace PaintingAndSound.DB
 
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
-        public User Users { get; set; }
+        public List<User> Users { get; set; }
 
     }
 }

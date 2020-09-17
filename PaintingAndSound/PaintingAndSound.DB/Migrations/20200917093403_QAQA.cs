@@ -3,33 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PaintingAndSound.DB.Migrations
 {
-    public partial class QAQ : Migration
+    public partial class QAQA : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    IsDelete = table.Column<bool>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    Photo = table.Column<string>(nullable: true),
-                    Synopsis = table.Column<string>(nullable: true),
-                    PassWodr = table.Column<string>(nullable: true),
-                    PaintingId = table.Column<int>(nullable: false),
-                    RadioId = table.Column<int>(nullable: false),
-                    FansId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Fans",
                 columns: table => new
@@ -44,12 +21,59 @@ namespace PaintingAndSound.DB.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Fans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Team",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    TeamNumber = table.Column<int>(nullable: false),
+                    TeamSynopsis = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Team", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    Photo = table.Column<string>(nullable: true),
+                    Synopsis = table.Column<string>(nullable: true),
+                    PassWord = table.Column<string>(nullable: true),
+                    FansCount = table.Column<int>(nullable: false),
+                    FansId = table.Column<int>(nullable: true),
+                    TeamId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Fans_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Users_Fans_FansId",
+                        column: x => x.FansId,
+                        principalTable: "Fans",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Users_Team_TeamId",
+                        column: x => x.TeamId,
+                        principalTable: "Team",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,11 +170,6 @@ namespace PaintingAndSound.DB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fans_UserId",
-                table: "Fans",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PaintingfComments_UserId",
                 table: "PaintingfComments",
                 column: "UserId");
@@ -169,13 +188,20 @@ namespace PaintingAndSound.DB.Migrations
                 name: "IX_Radios_UserId",
                 table: "Radios",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_FansId",
+                table: "Users",
+                column: "FansId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_TeamId",
+                table: "Users",
+                column: "TeamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Fans");
-
             migrationBuilder.DropTable(
                 name: "PaintingfComments");
 
@@ -190,6 +216,12 @@ namespace PaintingAndSound.DB.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Fans");
+
+            migrationBuilder.DropTable(
+                name: "Team");
         }
     }
 }

@@ -21,11 +21,12 @@ namespace PaintingAndSound.DB
         public DbSet<Radio> Radios { get; set; }
         public DbSet<RadioComment> RadioComments { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Team> Team { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QAQ123;User Id=sa;Password=123456");
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=HSDateBase;User Id=sa;Password=123456");
             }
         }
     }

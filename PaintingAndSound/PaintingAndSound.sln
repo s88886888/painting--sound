@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.DB", "PaintingAndSound.DB\PaintingAndSound.DB.csproj", "{FA42FDFB-88A2-4791-A39B-B80B214EF55E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintingAndSound.DB", "PaintingAndSound.DB\PaintingAndSound.DB.csproj", "{FA42FDFB-88A2-4791-A39B-B80B214EF55E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.AdminUI", "PaintingAndSound.AdminUI\PaintingAndSound.AdminUI.csproj", "{AD6C98F7-B49B-4350-BA39-F815299305B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.API", "PaintingAndSound.API\PaintingAndSound.API.csproj", "{FD975BB9-B076-48A1-A4B0-11EA2C4267B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintingAndSound.DAL", "PaintingAndSound.DAL\PaintingAndSound.DAL.csproj", "{348EA805-847F-44C6-9903-4397D0519045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA42FDFB-88A2-4791-A39B-B80B214EF55E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD6C98F7-B49B-4350-BA39-F815299305B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD975BB9-B076-48A1-A4B0-11EA2C4267B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD975BB9-B076-48A1-A4B0-11EA2C4267B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD975BB9-B076-48A1-A4B0-11EA2C4267B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD975BB9-B076-48A1-A4B0-11EA2C4267B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348EA805-847F-44C6-9903-4397D0519045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348EA805-847F-44C6-9903-4397D0519045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348EA805-847F-44C6-9903-4397D0519045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348EA805-847F-44C6-9903-4397D0519045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
