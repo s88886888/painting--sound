@@ -1,0 +1,9 @@
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\bin\Debug\netcoreapp3.1\PaintingAndSound.BLL.deps.json
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\bin\Debug\netcoreapp3.1\PaintingAndSound.BLL.dll
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\bin\Debug\netcoreapp3.1\PaintingAndSound.BLL.pdb
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.csprojAssemblyReference.cache
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.AssemblyInfoInputs.cache
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.AssemblyInfo.cs
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.csproj.CoreCompileInputs.cache
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.dll
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.BLL\obj\Debug\netcoreapp3.1\PaintingAndSound.BLL.pdb

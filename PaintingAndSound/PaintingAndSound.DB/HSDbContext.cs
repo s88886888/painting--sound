@@ -26,7 +26,7 @@ namespace PaintingAndSound.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=HSDateBase;User Id=sa;Password=123456");
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=HSDemo");
             }
         }
     }
