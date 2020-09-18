@@ -2263,6 +2263,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "PaintingAndSound.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "PaintingAndSound.DB": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PaintingAndSound.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaintingAndSound.DAL.dll": {}
+        }
+      },
       "PaintingAndSound.DB/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -7597,6 +7610,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "PaintingAndSound.DAL/1.0.0": {
+      "type": "project",
+      "path": "../PaintingAndSound.DAL/PaintingAndSound.DAL.csproj",
+      "msbuildProject": "../PaintingAndSound.DAL/PaintingAndSound.DAL.csproj"
+    },
     "PaintingAndSound.DB/1.0.0": {
       "type": "project",
       "path": "../PaintingAndSound.DB/PaintingAndSound.DB.csproj",
@@ -7607,6 +7625,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Sqlite.Design >= 1.1.6",
+      "PaintingAndSound.DAL >= 1.0.0",
       "PaintingAndSound.DB >= 1.0.0"
     ]
   },
@@ -7636,6 +7655,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DAL\\PaintingAndSound.DAL.csproj": {
+              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DAL\\PaintingAndSound.DAL.csproj"
+            },
             "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj": {
               "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\asdad\\painting--sound\\PaintingAndSound\\PaintingAndSound.DB\\PaintingAndSound.DB.csproj"
             }

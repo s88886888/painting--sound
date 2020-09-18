@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PaintingAndSound.DAL;
+using PaintingAndSound.DAL.Services;
 
 namespace PaintingAndSound.API
 {
@@ -26,6 +28,7 @@ namespace PaintingAndSound.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient(typeof(RadioServiceIDAL<>), typeof(RadioServiceDAL<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
