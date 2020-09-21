@@ -1,0 +1,8 @@
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.deps.json
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfoInputs.cache
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfo.cs
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb

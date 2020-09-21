@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.API.ViewModel;
 using PaintingAndSound.DAL.Services;
-using PaintingAndSound.DB;
+using PaintingAndSound.Entities;
 
 namespace PaintingAndSound.API.Controllers
 {
-    [Route("api/Radios")]
+    [Route("api/Radio")]
     [ApiController]
     public class RadioController : ControllerBase
     {
-        private readonly DAL.Services.RadioServiceIDAL<Radio> radioServiceIDAL;
+        private readonly RadioServiceIDAL<Radio> radioServiceIDAL;
 
         public RadioController(RadioServiceIDAL<Radio> radioServiceIDAL)
         {

@@ -1,0 +1,9 @@
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.deps.json
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfoInputs.cache
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfo.cs
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CoreCompileInputs.cache
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
+C:\Users\Lzzy\Desktop\Project\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csprojAssemblyReference.cache

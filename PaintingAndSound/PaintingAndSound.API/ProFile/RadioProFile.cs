@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using PaintingAndSound.API.ViewModel;
-using PaintingAndSound.DB;
+using PaintingAndSound.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
