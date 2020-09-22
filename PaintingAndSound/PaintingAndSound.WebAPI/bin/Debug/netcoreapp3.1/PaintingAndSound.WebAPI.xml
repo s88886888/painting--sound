@@ -10,46 +10,50 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PaintingAndSound.WebAPI.JWT.Appsettings.app(System.String[])">
+        <member name="M:PaintingAndSound.WebAPI.Controllers.TokenController.Login(PaintingAndSound.WebAPI.Controllers.LoginParameter)">
             <summary>
-            封装要操作的字符
+            获取token
             </summary>
-            <param name="sections"></param>
+            <param name="loginParameter"></param>
             <returns></returns>
         </member>
-        <member name="M:PaintingAndSound.WebAPI.JWT.JwtHelper.IssueJwt(PaintingAndSound.WebAPI.JWT.TokenModelJwt)">
+        <member name="T:PaintingAndSound.WebAPI.Controllers.UserController">
             <summary>
-            颁发JWT字符串
+            用户
             </summary>
-            <param name="tokenModel"></param>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.UserController.Get">
+            <summary>
+            所有用户
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:PaintingAndSound.WebAPI.JWT.JwtHelper.SerializeJwt(System.String)">
+        <member name="M:PaintingAndSound.WebAPI.Controllers.UserController.Get(System.Int32)">
             <summary>
-            解析
+            根据ID获取用户
             </summary>
-            <param name="jwtStr"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="T:PaintingAndSound.WebAPI.JWT.TokenModelJwt">
+        <member name="M:PaintingAndSound.WebAPI.Controllers.UserController.Add(PaintingAndSound.WebAPI.Controllers.LoginParameter)">
             <summary>
-            令牌
+            添加用户
             </summary>
+            <param name="loginParameter"></param>
+            <returns></returns>
         </member>
-        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Uid">
+        <member name="M:PaintingAndSound.WebAPI.JWT.AppHelper.GetToken(PaintingAndSound.Entities.User)">
             <summary>
-            Id
+            生成token
             </summary>
+            <param name="user"></param>
+            <returns></returns>
         </member>
-        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Role">
+        <member name="M:PaintingAndSound.WebAPI.JWT.AppSettings.Init(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            角色
+            初始化jwt配置
             </summary>
-        </member>
-        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Work">
-            <summary>
-            职能
-            </summary>
+            <param name="configuration"></param>
         </member>
     </members>
 </doc>
