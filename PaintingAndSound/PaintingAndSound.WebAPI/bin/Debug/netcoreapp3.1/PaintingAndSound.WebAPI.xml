@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PaintingAndSound.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.GetRadioAll">
+            <summary>
+            获取所有音乐
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.JWT.Appsettings.app(System.String[])">
+            <summary>
+            封装要操作的字符
+            </summary>
+            <param name="sections"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.JWT.JwtHelper.IssueJwt(PaintingAndSound.WebAPI.JWT.TokenModelJwt)">
+            <summary>
+            颁发JWT字符串
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.JWT.JwtHelper.SerializeJwt(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PaintingAndSound.WebAPI.JWT.TokenModelJwt">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:PaintingAndSound.WebAPI.JWT.TokenModelJwt.Work">
+            <summary>
+            职能
+            </summary>
+        </member>
+    </members>
+</doc>
