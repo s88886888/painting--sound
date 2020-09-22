@@ -5,8 +5,8 @@ using System.Text;
 
 namespace PaintingAndSound.DAL.Services
 {
-   public interface RadioServiceIDAL<T>:ServiceBaseIDAL<T> where T : class, new()
-    {
+   //public interface RadioServiceIDAL<T>:ServiceBaseIDAL<T> where T : class, new()
+   // {
 
-    }
+   // }
 }

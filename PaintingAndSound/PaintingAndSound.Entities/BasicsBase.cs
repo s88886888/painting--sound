@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
-    public class BasicsBase
+    public class BasicsBase: IBasicsBase
     {
 
         public int Id { get; set; }

@@ -1,4 +1,5 @@
 ﻿
+using PaintingAndSound.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PaintingAndSound.DAL.Services
 {
-    public interface ServiceBaseIDAL<T> where T : class, new()
+    public interface ServiceBaseIDAL<T> where T : class, IBasicsBase, new()
     {
         /// <summary>
         /// 获取所有

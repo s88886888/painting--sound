@@ -6,9 +6,6 @@ namespace PaintingAndSound.ORM
 {
     public class HSDbContext : DbContext
     {
-        public HSDbContext() : base()
-        {
-        }
         public HSDbContext(DbContextOptions<HSDbContext> options)
           : base(options)
         {
@@ -21,12 +18,16 @@ namespace PaintingAndSound.ORM
         public DbSet<RadioComment> RadioComments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Team> Team { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=HSDemo");
+        //    }
+        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=HSDemo");
-            }
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
