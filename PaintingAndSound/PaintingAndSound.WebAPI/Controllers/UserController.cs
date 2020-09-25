@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
+using PaintingAndSound.UserAndRole;
 using PaintingAndSound.WebAPI.Dto;
 
 namespace PaintingAndSound.WebAPI.Controllers

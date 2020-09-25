@@ -5691,11 +5691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
       "projectName": "PaintingAndSound.DataAccess",
-      "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
+      "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
       "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\大大卷泡泡乐\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5711,11 +5711,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj": {
-              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj"
+            "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj": {
+              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj"
             },
-            "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
-              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\pang\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
+            "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
+              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
             }
           }
         }

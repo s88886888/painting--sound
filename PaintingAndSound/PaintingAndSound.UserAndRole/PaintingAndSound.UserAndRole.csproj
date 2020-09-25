@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PaintingAndSound.Entities\PaintingAndSound.Entities.csproj" />
+    <ProjectReference Include="..\PaintingAndSound.ORM\PaintingAndSound.ORM.csproj" />
+  </ItemGroup>
+
 </Project>

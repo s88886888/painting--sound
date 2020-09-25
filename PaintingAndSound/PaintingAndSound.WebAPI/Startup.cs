@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +22,8 @@ using PaintingAndSound.DataAccess;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ORM;
+using PaintingAndSound.UserAndRole;
+using PaintingAndSound.ViewModel.AutoMapper;
 using PaintingAndSound.WebAPI.JWT;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -43,6 +46,11 @@ namespace PaintingAndSound.WebAPI
             services.AddControllersWithViews();
             // ≈‰÷√ π”√ Sql Server µƒ EF Context
             services.AddDbContext<HSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HsContext")));
+
+
+            services.AddAutoMapper(Assembly.Load("PaintingAndSound.ViewModel"));
+            //services.AddAutoMapper(typeof(RadioAutoMapper));
+
 
             services.AddSwaggerGen(c =>
             {

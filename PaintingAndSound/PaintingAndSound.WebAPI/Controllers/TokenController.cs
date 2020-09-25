@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
+using PaintingAndSound.UserAndRole;
 using PaintingAndSound.WebAPI.Dto;
 using PaintingAndSound.WebAPI.JWT;
 

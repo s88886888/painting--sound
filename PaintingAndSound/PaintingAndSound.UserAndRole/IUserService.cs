@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaintingAndSound.DataAccess.Services
+namespace PaintingAndSound.UserAndRole
 {
     public interface IUserService
     {

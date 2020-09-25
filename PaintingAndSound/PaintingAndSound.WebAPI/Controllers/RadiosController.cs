@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
+using PaintingAndSound.ViewModel;
 using PaintingAndSound.WebAPI.JWT;
 
 namespace PaintingAndSound.WebAPI.Controllers
@@ -14,16 +16,16 @@ namespace PaintingAndSound.WebAPI.Controllers
     //[Produces("application/josn")]
     [Route("api/radio")]
     [ApiController]
-    [Authorize(Roles = "admin")]
-
-
+    [Authorize]
     public class RadiosController : ControllerBase
     {
         private readonly IEntityRepository<Radio> entityRepositoryRadio;
+        private readonly IMapper mapper;
 
-        public RadiosController(IEntityRepository<Radio> entityRepositoryRadio)
+        public RadiosController(IEntityRepository<Radio> entityRepositoryRadio,IMapper mapper)
         {
             this.entityRepositoryRadio = entityRepositoryRadio;
+            this.mapper = mapper;
         }
         /// <summary>
         /// 获取所有音乐
@@ -32,9 +34,23 @@ namespace PaintingAndSound.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRadioAll()
         {
-            var radios = await entityRepositoryRadio.GetAllAsyn();
-            return Ok(radios);
+            var radios = await entityRepositoryRadio.GetAllAsyn();            
+           List<RadioViewModel> radioViewModel = new List<RadioViewModel>();
+            mapper.Map(radios, radioViewModel);
+            return Ok(radioViewModel);
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateRadioAsync([FromBody] RadioViewModel radioViewModel)
+        {
+
+            Radio radio = new Radio();
+            mapper.Map(radioViewModel, radio);
+            await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);
+           await entityRepositoryRadio.SaveAsyn();
+            return Ok("OK");
+        }
+
+
 
         //public async Task<object> GetJwtStr(string name, string pass)
         //{

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ORM;
 using System;
@@ -7,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaintingAndSound.DataAccess
+namespace PaintingAndSound.UserAndRole
 {
     public class UserService: IUserService
     {

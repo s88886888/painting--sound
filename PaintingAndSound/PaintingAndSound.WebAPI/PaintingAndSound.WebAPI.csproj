@@ -22,6 +22,8 @@
   <ItemGroup>
     <ProjectReference Include="..\PaintingAndSound.DataAccess\PaintingAndSound.DataAccess.csproj" />
     <ProjectReference Include="..\PaintingAndSound.ORM\PaintingAndSound.ORM.csproj" />
+    <ProjectReference Include="..\PaintingAndSound.UserAndRole\PaintingAndSound.UserAndRole.csproj" />
+    <ProjectReference Include="..\PaintingAndSound.ViewModel\PaintingAndSound.ViewModel.csproj" />
   </ItemGroup>
 
 
