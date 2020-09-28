@@ -98,6 +98,10 @@ namespace PaintingAndSound.WebAPI
             services.AddControllers();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEntityRepository<Radio>, EntityRepository<Radio>>();
+            services.AddScoped<IEntityRepository<Painting>, EntityRepository<Painting>>();
+            services.AddScoped<IEntityRepository<PaintingComment>, EntityRepository<PaintingComment>>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

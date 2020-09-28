@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\大大卷泡泡乐\Desktop\pang\painting--sound\PaintingAndSound\PaintingAndSound.WebAPI\PaintingAndSound.WebAPI.xml</DocumentationFile>
+    <DocumentationFile>..\PaintingAndSound.WebAPI\PaintingAndSound.WebAPI.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <ItemGroup>

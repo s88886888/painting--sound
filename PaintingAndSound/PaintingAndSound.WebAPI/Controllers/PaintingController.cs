@@ -50,7 +50,7 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// </summary>
         /// <param name="paintingViewModel"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("CreatePaintingAsync")]
         public async Task<IActionResult> CreatePaintingAsync([FromBody] PaintingViewModel paintingViewModel)
         {
 
@@ -90,26 +90,26 @@ namespace PaintingAndSound.WebAPI.Controllers
         }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingViewModel paintingViewModel)
-        //{
-        //    //获取当前评论那一张画？
-        //    var painting = entityRepositoryPainting.FindBy(x => x.Id == paintingViewModel.Id);
-        //    //获取当前登入的Id
-        //    var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //    if (painting == null)
-        //    {
-        //        return Ok("没有这条评论");
-        //    }
-        //    PaintingComment paintingComment = new PaintingComment();
-        //    PaintingCommentViewModel paintingCommentViewModel = new PaintingCommentViewModel();
-        //    //paintingComment.PaintingId = paintingViewModel.Id;
-        //    //paintingComment.UserId = Convert.ToInt32(user);
-        //    mapper.Map(paintingCommentViewModel, paintingComment);
-        //    entityRepositoryPaintingComment.Add(paintingComment);
-        //    await entityRepositoryPaintingComment.SaveAsyn();
-        //    return Ok("OK");
-        //}
+        [HttpPost("CreatePaintingCommenAsync")]
+        public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingViewModel paintingViewModel)
+        {
+            //获取当前评论那一张画？
+            var painting = entityRepositoryPainting.FindBy(x => x.Id == paintingViewModel.Id);
+            //获取当前登入的Id
+            var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (painting == null)
+            {
+                return Ok("没有这条评论");
+            }
+            PaintingComment paintingComment = new PaintingComment();
+            PaintingCommentViewModel paintingCommentViewModel = new PaintingCommentViewModel();
+            //paintingComment.PaintingId = paintingViewModel.Id;
+            //paintingComment.UserId = Convert.ToInt32(user);
+            mapper.Map(paintingCommentViewModel, paintingComment);
+            entityRepositoryPaintingComment.Add(paintingComment);
+            await entityRepositoryPaintingComment.SaveAsyn();
+            return Ok("OK");
+        }
 
 
 
