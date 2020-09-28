@@ -88,13 +88,17 @@ namespace PaintingAndSound.WebAPI.Controllers
             await entityRepositoryPainting.AddOrEditAndSaveAsyn(painting);//如果数据库中有就增加，没有就修改
             return Ok("Ok");
         }
-
+        /// <summary>
+        /// 添加评论
+        /// </summary>
+        /// <param name="paintingCommentViewModels"></param>
+        /// <returns></returns>
 
         [HttpPost("CreatePaintingCommenAsync")]
         public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingCommentViewModel paintingCommentViewModels)
         {
 
-            var paintions = entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
+            var paintions =await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
 
             //获取当前登入的Id
             var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

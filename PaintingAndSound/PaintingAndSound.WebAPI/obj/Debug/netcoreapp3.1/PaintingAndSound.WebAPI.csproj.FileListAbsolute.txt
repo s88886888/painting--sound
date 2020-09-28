@@ -249,3 +249,10 @@ C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netc
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\staticwebassets\PaintingAndSound.WebAPI.StaticWebAssets.xml
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.dll
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.pdb
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.deps.json
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.runtimeconfig.json
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.runtimeconfig.dev.json
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.dll
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.pdb
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.xml
+C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.genruntimeconfig.cache
