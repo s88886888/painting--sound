@@ -22,7 +22,7 @@ namespace PaintingAndSound.WebAPI.Controllers
         private readonly IEntityRepository<Radio> entityRepositoryRadio;
         private readonly IMapper mapper;
 
-        public RadiosController(IEntityRepository<Radio> entityRepositoryRadio,IMapper mapper)
+        public RadiosController(IEntityRepository<Radio> entityRepositoryRadio, IMapper mapper)
         {
             this.entityRepositoryRadio = entityRepositoryRadio;
             this.mapper = mapper;
@@ -34,11 +34,16 @@ namespace PaintingAndSound.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRadioAll()
         {
-            var radios = await entityRepositoryRadio.GetAllAsyn();            
-           List<RadioViewModel> radioViewModel = new List<RadioViewModel>();
+            var radios = await entityRepositoryRadio.GetAllAsyn();
+            List<RadioViewModel> radioViewModel = new List<RadioViewModel>();
             mapper.Map(radios, radioViewModel);
             return Ok(radioViewModel);
         }
+        /// <summary>
+        /// 增加一个音乐
+        /// </summary>
+        /// <param name="radioViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> CreateRadioAsync([FromBody] RadioViewModel radioViewModel)
         {
@@ -46,11 +51,37 @@ namespace PaintingAndSound.WebAPI.Controllers
             Radio radio = new Radio();
             mapper.Map(radioViewModel, radio);
             await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);
-           await entityRepositoryRadio.SaveAsyn();
             return Ok("OK");
         }
-
-
+        /// <summary>
+        /// 删除模块
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+       
+        public async Task<IActionResult> DeleteRadioAsync(int Id)
+        {
+            var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
+            if (radio == null)
+            {
+                return NotFound();
+            }
+            entityRepositoryRadio.DeleteAndSave(radio);
+            return Ok("Ok");
+        }
+        [HttpPatch]//局部更新
+        public async Task<IActionResult> UpdateRadioAsync([FromBody] RadioViewModel radioViewModel)
+        {
+            if (radioViewModel == null)
+            {
+                return NotFound();
+            }
+            Radio radio = new Radio();
+            mapper.Map(radioViewModel, radio);
+            await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);//如果数据库中有就增加，没有就修改
+            return Ok("Ok");
+        }
 
         //public async Task<object> GetJwtStr(string name, string pass)
         //{

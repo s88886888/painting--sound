@@ -18,7 +18,7 @@ namespace PaintingAndSound.Entities
         /// <summary>
         /// 评论
         /// </summary>
-        [ForeignKey(nameof(PaintingfComment))]
+        [ForeignKey(nameof(PaintingComment))]
         public int PaintingCommentId { get; set; }
     }
 }

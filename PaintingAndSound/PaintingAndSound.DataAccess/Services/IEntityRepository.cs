@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PaintingAndSound.DataAccess.Services
 {
-    public interface IEntityRepository<T> where T : class, new()
+    public interface IEntityRepository<T> where T : BasicsBase, new()
     {
         /// <summary>
         /// 持久化数据
@@ -178,7 +178,9 @@ namespace PaintingAndSound.DataAccess.Services
 
         Task<bool> AddOrEditAndSaveAsyn(T entity);
 
-        //Task<DeleteStatusModel> DeleteAndSaveAsyn(Guid id);
+      
+
+       
 
         //Task<PaginatedList<T>> PaginateAsyn<TKey>(int pageIndex, int pageSize, Expression<Func<T, TKey>> keySelector);
 

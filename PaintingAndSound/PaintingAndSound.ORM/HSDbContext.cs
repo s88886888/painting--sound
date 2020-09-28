@@ -13,7 +13,7 @@ namespace PaintingAndSound.ORM
         }
         public ISet<Fans> Fans { get; set; }
         public DbSet<Painting> Paintings { get; set; }
-        public DbSet<PaintingfComment> PaintingfComments { get; set; }
+        public DbSet<PaintingComment> PaintingComments { get; set; }
         public DbSet<Radio> Radios { get; set; }
         public DbSet<RadioComment> RadioComments { get; set; }
         public DbSet<User> Users { get; set; }

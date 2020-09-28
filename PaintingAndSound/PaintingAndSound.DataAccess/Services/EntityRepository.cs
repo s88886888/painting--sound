@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PaintingAndSound.DataAccess.Services
 {
-   public class EntityRepository<T>:IEntityRepository<T>where T:class, IBasicsBase, new()
+   public class EntityRepository<T>:IEntityRepository<T>where T: BasicsBase, new()
     {
         readonly HSDbContext _HSDbContext;
 
@@ -32,7 +32,7 @@ namespace PaintingAndSound.DataAccess.Services
             }
         }
 
-        public virtual IQueryable<T> GetAll() => _HSDbContext.Set<T>();
+        public virtual IQueryable<T> GetAll() => _HSDbContext.Set<T>().Where(a=>a.IsDelete==false);
 
         public virtual IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
@@ -347,6 +347,7 @@ namespace PaintingAndSound.DataAccess.Services
             return dbSet.Any(x => x.Id == id);
         }
 
+       
 
 
         #endregion

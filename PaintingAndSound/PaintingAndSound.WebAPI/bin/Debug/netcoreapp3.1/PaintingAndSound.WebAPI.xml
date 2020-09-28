@@ -4,10 +4,51 @@
         <name>PaintingAndSound.WebAPI</name>
     </assembly>
     <members>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.GetPaintingAll">
+            <summary>
+            获取所有的画画
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.CreatePaintingAsync(PaintingAndSound.ViewModel.AutoMapper.PaintingViewModel)">
+            <summary>
+            增加一个画画
+            </summary>
+            <param name="paintingViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.DeletePaintingAsync(System.Int32)">
+            <summary>
+            删除模块
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.CreatePaintingCommensAsync(PaintingAndSound.ViewModel.AutoMapper.PaintingViewModel)">
+            <summary>
+            画画
+            </summary>
+            <param name="paintingViewModel"></param>
+            <returns></returns>
+        </member>
         <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.GetRadioAll">
             <summary>
             获取所有音乐
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.CreateRadioAsync(PaintingAndSound.ViewModel.RadioViewModel)">
+            <summary>
+            增加一个音乐
+            </summary>
+            <param name="radioViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.DeleteRadioAsync(System.Int32)">
+            <summary>
+            删除模块
+            </summary>
+            <param name="Id"></param>
             <returns></returns>
         </member>
         <member name="M:PaintingAndSound.WebAPI.Controllers.TokenController.Login(PaintingAndSound.WebAPI.Controllers.LoginParameter)">

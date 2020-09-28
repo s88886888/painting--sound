@@ -10,7 +10,7 @@
         "dependencies": {
           "AutoMapper": "10.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.0.1",
-          "PaintingAndSound.Entities": "1.0.0.0"
+          "PaintingAndSound.Entities": "1.0.0"
         },
         "runtime": {
           "PaintingAndSound.ViewModel.dll": {}
@@ -71,12 +71,9 @@
         }
       },
       "System.Reflection.Emit/4.7.0": {},
-      "PaintingAndSound.Entities/1.0.0.0": {
+      "PaintingAndSound.Entities/1.0.0": {
         "runtime": {
-          "PaintingAndSound.Entities.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "PaintingAndSound.Entities.dll": {}
         }
       }
     }
@@ -136,8 +133,8 @@
       "path": "system.reflection.emit/4.7.0",
       "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
-    "PaintingAndSound.Entities/1.0.0.0": {
-      "type": "reference",
+    "PaintingAndSound.Entities/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

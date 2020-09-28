@@ -77,6 +77,16 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "PaintingAndSound.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/PaintingAndSound.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaintingAndSound.Entities.dll": {}
+        }
       }
     }
   },
@@ -275,12 +285,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "PaintingAndSound.Entities/1.0.0": {
+      "type": "project",
+      "path": "../PaintingAndSound.Entities/PaintingAndSound.Entities.csproj",
+      "msbuildProject": "../PaintingAndSound.Entities/PaintingAndSound.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper >= 10.0.0",
-      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.0.1"
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.0.1",
+      "PaintingAndSound.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -308,7 +324,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj": {
+              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

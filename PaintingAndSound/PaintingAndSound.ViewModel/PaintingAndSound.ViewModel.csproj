@@ -10,9 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="PaintingAndSound.Entities">
-      <HintPath>..\PaintingAndSound.Entities\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\PaintingAndSound.Entities\PaintingAndSound.Entities.csproj" />
   </ItemGroup>
 
 </Project>
