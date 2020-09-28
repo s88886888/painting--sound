@@ -91,16 +91,21 @@ namespace PaintingAndSound.WebAPI.Controllers
 
 
         [HttpPost("CreatePaintingCommenAsync")]
-        public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingViewModel paintingViewModel)
+        public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingCommentViewModel paintingCommentViewModels)
         {
-            //获取当前评论那一张画？
-            var painting = entityRepositoryPainting.FindBy(x => x.Id == paintingViewModel.Id);
+
+            var paintions = entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
+
             //获取当前登入的Id
             var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (painting == null)
+
+            if (paintions == null)
             {
                 return Ok("没有这条评论");
             }
+
+
+
             PaintingComment paintingComment = new PaintingComment();
             PaintingCommentViewModel paintingCommentViewModel = new PaintingCommentViewModel();
             //paintingComment.PaintingId = paintingViewModel.Id;
