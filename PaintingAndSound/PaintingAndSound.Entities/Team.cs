@@ -16,6 +16,8 @@ namespace PaintingAndSound.Entities
         /// 团队简介
         /// </summary>
         public int TeamSynopsis { get; set; }
+
+
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public List<User> Users { get; set; }

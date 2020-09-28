@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PaintingAndSound.ORM.Migrations
 {
-    public partial class init : Migration
+    public partial class QAQ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,29 +54,6 @@ namespace PaintingAndSound.ORM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaintingfComments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    IsDelete = table.Column<bool>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PaintingfComments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PaintingfComments_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Paintings",
                 columns: table => new
                 {
@@ -86,37 +63,13 @@ namespace PaintingAndSound.ORM.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
                     PaintingUrl = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
-                    PaintingCommentId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Paintings", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Paintings_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RadioComments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    IsDelete = table.Column<bool>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RadioComments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RadioComments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -146,15 +99,85 @@ namespace PaintingAndSound.ORM.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PaintingComments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    Comments = table.Column<string>(nullable: true),
+                    PaintingId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaintingComments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaintingComments_Paintings_PaintingId",
+                        column: x => x.PaintingId,
+                        principalTable: "Paintings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PaintingComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RadioComments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    Comments = table.Column<string>(nullable: true),
+                    RadioId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RadioComments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RadioComments_Radios_RadioId",
+                        column: x => x.RadioId,
+                        principalTable: "Radios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RadioComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_PaintingfComments_UserId",
-                table: "PaintingfComments",
+                name: "IX_PaintingComments_PaintingId",
+                table: "PaintingComments",
+                column: "PaintingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaintingComments_UserId",
+                table: "PaintingComments",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Paintings_UserId",
                 table: "Paintings",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RadioComments_RadioId",
+                table: "RadioComments",
+                column: "RadioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RadioComments_UserId",
@@ -175,13 +198,13 @@ namespace PaintingAndSound.ORM.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PaintingfComments");
-
-            migrationBuilder.DropTable(
-                name: "Paintings");
+                name: "PaintingComments");
 
             migrationBuilder.DropTable(
                 name: "RadioComments");
+
+            migrationBuilder.DropTable(
+                name: "Paintings");
 
             migrationBuilder.DropTable(
                 name: "Radios");

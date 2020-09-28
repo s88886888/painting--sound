@@ -88,36 +88,26 @@ namespace PaintingAndSound.WebAPI.Controllers
             await entityRepositoryPainting.AddOrEditAndSaveAsyn(painting);//如果数据库中有就增加，没有就修改
             return Ok("Ok");
         }
-       /// <summary>
-       /// 画画
-       /// </summary>
-       /// <param name="paintingViewModel"></param>
-       /// <returns></returns>
 
-
-       [HttpPost]
-       public async Task<IActionResult> CreatePaintingCommensAsync([FromBody] PaintingViewModel paintingViewModel)
-        {
-            return Ok("ok");
-        }
 
         //[HttpPost]
-        //public async Task<IActionResult> CreatePaintingCommenAsync([FromBody]PaintingViewModel paintingViewModel)
+        //public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingViewModel paintingViewModel)
         //{
-        //    ////获取当前评论那一张画？
-        //    //var painting = entityRepositoryPainting.FindBy(x => x.Id == paintingViewModel.Id);
-        //    ////获取当前登入的Id
-        //    ////string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        //    ////if (painting == null)
-        //    ////{
-        //    ////    return Ok("没有这条评论");
-        //    ////}
-        //    //PaintingComment paintingComment = new PaintingComment();
-
-        //    ////mapper.Map(paintingfCommentViewModel, paintingComment);
-        //    //entityRepositoryPaintingComment.Add(paintingComment);
-        //    //await entityRepositoryPaintingComment.SaveAsyn();
+        //    //获取当前评论那一张画？
+        //    var painting = entityRepositoryPainting.FindBy(x => x.Id == paintingViewModel.Id);
+        //    //获取当前登入的Id
+        //    var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (painting == null)
+        //    {
+        //        return Ok("没有这条评论");
+        //    }
+        //    PaintingComment paintingComment = new PaintingComment();
+        //    PaintingCommentViewModel paintingCommentViewModel = new PaintingCommentViewModel();
+        //    //paintingComment.PaintingId = paintingViewModel.Id;
+        //    //paintingComment.UserId = Convert.ToInt32(user);
+        //    mapper.Map(paintingCommentViewModel, paintingComment);
+        //    entityRepositoryPaintingComment.Add(paintingComment);
+        //    await entityRepositoryPaintingComment.SaveAsyn();
         //    return Ok("OK");
         //}
 

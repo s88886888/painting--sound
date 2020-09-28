@@ -10,8 +10,8 @@ using PaintingAndSound.ORM;
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    [Migration("20200922040416_init")]
-    partial class init
+    [Migration("20200928123052_QAQ")]
+    partial class QAQ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,9 +37,6 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PaintingCommentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PaintingUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -53,7 +50,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.ToTable("Paintings");
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.PaintingfComment", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,14 +69,19 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("PaintingId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PaintingId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("PaintingfComments");
+                    b.ToTable("PaintingComments");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
@@ -130,10 +132,15 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("RadioId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RadioId");
 
                     b.HasIndex("UserId");
 
@@ -223,13 +230,17 @@ namespace PaintingAndSound.ORM.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.PaintingfComment", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.User", "Users")
+                    b.HasOne("PaintingAndSound.Entities.Painting", "Paintings")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("PaintingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PaintingAndSound.Entities.User", null)
+                        .WithMany("PaintingComments")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
@@ -243,11 +254,15 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.RadioComment", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.User", "Users")
+                    b.HasOne("PaintingAndSound.Entities.Radio", "Radios")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("RadioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PaintingAndSound.Entities.User", null)
+                        .WithMany("RadioComments")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.User", b =>

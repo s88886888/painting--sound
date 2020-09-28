@@ -29,6 +29,9 @@ namespace PaintingAndSound.Entities
         /// 
         public List<Painting> Paintings { get; set; }
         public List<Radio> Radios { get; set; }
+        //2020-9-28 新加入
+        public List<PaintingComment> PaintingComments { get; set; }
+        public List<RadioComment> RadioComments { get; set; }
 
     }
 }

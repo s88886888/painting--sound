@@ -15,10 +15,7 @@ namespace PaintingAndSound.Entities
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User Users { get; set; }
-        /// <summary>
-        /// 评论
-        /// </summary>
-        [ForeignKey(nameof(PaintingComment))]
-        public int PaintingCommentId { get; set; }
+
+
     }
 }

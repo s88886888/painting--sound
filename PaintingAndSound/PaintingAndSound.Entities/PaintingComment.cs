@@ -13,15 +13,10 @@ namespace PaintingAndSound.Entities
         public string Comments { get; set; }
 
 
-
+        [ForeignKey(nameof(Painting))]
         public int PaintingId { get; set; }
 
         public Painting Paintings { get; set; }
-
-
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public User Users{ get; set; }
 
     }
 }

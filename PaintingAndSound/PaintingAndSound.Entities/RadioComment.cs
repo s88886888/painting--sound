@@ -15,8 +15,9 @@ namespace PaintingAndSound.Entities
         /// </summary>
         public string Comments { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public User Users { get; set; }
+
+        [ForeignKey(nameof(Radio))]
+        public int RadioId { get; set; }
+        public Radio Radios { get; set; }
     }
 }

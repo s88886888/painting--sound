@@ -1,31 +1,22 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using PaintingAndSound.DataAccess;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ORM;
 using PaintingAndSound.UserAndRole;
-using PaintingAndSound.ViewModel.AutoMapper;
 using PaintingAndSound.WebAPI.JWT;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace PaintingAndSound.WebAPI
 {
@@ -49,13 +40,11 @@ namespace PaintingAndSound.WebAPI
 
 
             services.AddAutoMapper(Assembly.Load("PaintingAndSound.ViewModel"));
-            //services.AddAutoMapper(typeof(RadioAutoMapper));
 
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-                // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
