@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -97,32 +98,35 @@ namespace PaintingAndSound.WebAPI.Controllers
         [HttpPost("CreatePaintingCommenAsync")]
         public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingCommentViewModel paintingCommentViewModels)
         {
+            //前端给出具体的画Id----进行评论
+            var paintions = await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
 
-            var paintions =await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
-
-            //获取当前登入的Id
-            var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
+            var paintingCommentViewModel = new PaintingCommentViewModel();
+            var paintingComment = new PaintingComment();
             if (paintions == null)
             {
-                return Ok("没有这条评论");
+                return Ok("没有这幅画");
             }
+            else
+            {
+                //获取当前登入tokon的Id string类型
+                var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
 
+                paintingComment.UserId=Convert.ToInt32(user);
 
+                paintingCommentViewModel.PaintingId = paintions.Id;
 
-            PaintingComment paintingComment = new PaintingComment();
-            PaintingCommentViewModel paintingCommentViewModel = new PaintingCommentViewModel();
-            //paintingComment.PaintingId = paintingViewModel.Id;
-            //paintingComment.UserId = Convert.ToInt32(user);
+                paintingCommentViewModel.Name = paintingCommentViewModels.Name;
+
+                paintingCommentViewModel.Comments = paintingCommentViewModels.Comments;
+
+                paintingCommentViewModel.DateTime = paintingCommentViewModels.DateTime;
+            }
+           
             mapper.Map(paintingCommentViewModel, paintingComment);
             entityRepositoryPaintingComment.Add(paintingComment);
             await entityRepositoryPaintingComment.SaveAsyn();
-            return Ok("OK");
+            return Ok("评论成功");
         }
-
-
-
-
-
     }
 }

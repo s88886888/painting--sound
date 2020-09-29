@@ -10,8 +10,8 @@ using PaintingAndSound.ORM;
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    [Migration("20200928123052_QAQ")]
-    partial class QAQ
+    [Migration("20200929092548_QAQ546")]
+    partial class QAQ546
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,14 +72,12 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<int>("PaintingId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PaintingId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("PaintingComments");
                 });
@@ -232,15 +230,11 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Painting", "Paintings")
-                        .WithMany()
+                    b.HasOne("PaintingAndSound.Entities.Painting", null)
+                        .WithMany("PaintingComments")
                         .HasForeignKey("PaintingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("PaintingAndSound.Entities.User", null)
-                        .WithMany("PaintingComments")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>

@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9Mab61sDR8UTB2rzF9pkf9pA8Fzvgvp1qZM6VjXYWqAZr1ZOXBeIXEDxhzjsnY3Geie+BZctilDQ6YVqNmLRpw==",
+  "dgSpecHash": "cz1PPpTySiFolyWCYz5eJ2BSlSv8Ke44Xi3NtnryhgZYFtDlybJ18IGr6ZAaK/vfHHNJ1Z2I2v5j0g/iKQGcbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj",
+  "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\武\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
-    "C:\\Users\\武\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

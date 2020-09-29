@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaintingAndSound.ORM;
 
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    partial class HSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200929091914_QAQ15844")]
+    partial class QAQ15844
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +77,7 @@ namespace PaintingAndSound.ORM.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PaintingId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("PaintingComments");
                 });
@@ -228,9 +230,9 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Painting", null)
+                    b.HasOne("PaintingAndSound.Entities.User", null)
                         .WithMany("PaintingComments")
-                        .HasForeignKey("PaintingId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

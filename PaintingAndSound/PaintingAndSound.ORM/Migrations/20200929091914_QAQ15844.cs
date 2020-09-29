@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PaintingAndSound.ORM.Migrations
 {
-    public partial class QAQ : Migration
+    public partial class QAQ15844 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,6 +54,30 @@ namespace PaintingAndSound.ORM.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PaintingComments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    Comments = table.Column<string>(nullable: true),
+                    PaintingId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaintingComments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaintingComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Paintings",
                 columns: table => new
                 {
@@ -100,36 +124,6 @@ namespace PaintingAndSound.ORM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaintingComments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    IsDelete = table.Column<bool>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
-                    PaintingId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PaintingComments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PaintingComments_Paintings_PaintingId",
-                        column: x => x.PaintingId,
-                        principalTable: "Paintings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PaintingComments_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RadioComments",
                 columns: table => new
                 {
@@ -158,11 +152,6 @@ namespace PaintingAndSound.ORM.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PaintingComments_PaintingId",
-                table: "PaintingComments",
-                column: "PaintingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PaintingComments_UserId",
@@ -201,10 +190,10 @@ namespace PaintingAndSound.ORM.Migrations
                 name: "PaintingComments");
 
             migrationBuilder.DropTable(
-                name: "RadioComments");
+                name: "Paintings");
 
             migrationBuilder.DropTable(
-                name: "Paintings");
+                name: "RadioComments");
 
             migrationBuilder.DropTable(
                 name: "Radios");

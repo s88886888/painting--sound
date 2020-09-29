@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
-   public class Painting:BasicsBase
+    public class Painting : BasicsBase
     {
         /// <summary>
         /// 图片路径
@@ -15,6 +15,9 @@ namespace PaintingAndSound.Entities
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User Users { get; set; }
+
+
+        public List<PaintingComment> PaintingComments { get; set; }
 
 
     }

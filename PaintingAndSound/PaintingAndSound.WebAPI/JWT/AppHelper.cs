@@ -29,6 +29,8 @@ namespace PaintingAndSound.WebAPI.JWT
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("id", user.Id.ToString(), ClaimValueTypes.Integer32), // 用户id
                 new Claim("name", user.Name), // 用户名
+                new Claim("email",user.Email)
+
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AppSettings.JwtSetting.SecurityKey));
