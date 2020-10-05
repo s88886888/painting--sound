@@ -10,8 +10,8 @@ namespace PaintingAndSound.ViewModel.AutoMapper
             CreateMap<Radio, RadioViewModel>();
             CreateMap<RadioViewModel, Radio>();
 
-            CreateMap<PaintingComment, PaintingCommentViewModel>();//PaintingCommentAutoMapper
-            CreateMap<PaintingCommentViewModel, PaintingComment>();
+            //CreateMap<PaintingComment, PaintingCommentViewModel>();//PaintingCommentAutoMapper
+            //CreateMap<PaintingCommentViewModel, PaintingComment>();
 
             CreateMap<Painting, PaintingViewModel>();//PaintingAutoMapper
             CreateMap<PaintingViewModel, Painting>();

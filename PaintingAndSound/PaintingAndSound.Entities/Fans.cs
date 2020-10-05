@@ -5,12 +5,11 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
-  public class Fans:BasicsBase
+    [Table("Fans")]
+    public class Fans:BasicsBase
     {
-
-        [ForeignKey(nameof(User))]
         public int UserId { get; set; }
-        public List<User> Users { get; set; }
+        public User Users { get; set; }
 
     }
 }

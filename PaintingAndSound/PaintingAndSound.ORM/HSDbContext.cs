@@ -11,23 +11,48 @@ namespace PaintingAndSound.ORM
         {
 
         }
-        public ISet<Fans> Fans { get; set; }
+        public DbSet<Fans> Fans { get; set; }
         public DbSet<Painting> Paintings { get; set; }
-        public DbSet<PaintingComment> PaintingComments { get; set; }
+        public DbSet<Works> Works { get; set; }
         public DbSet<Radio> Radios { get; set; }
-        public DbSet<RadioComment> RadioComments { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Team> Team { get; set; }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=HSDemo");
-        //    }
-        //}
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<WorksComments> WorksComments { get; set; }
+        public DbSet<UserTeam>  UserTeams { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UserTeam>().HasKey(a => new { a.UserId, a.TeamId });
+
+            modelBuilder.Entity<Radio>()
+                .HasOne(a => a.Works)
+                .WithOne(a => a.Radio)
+                .HasForeignKey<Radio>(a => a.WorksId);
+
+
+            //modelBuilder.Entity<Fans>()
+            //    .HasOne(a => a.Users)
+            //    .WithMany(a => a.Fans)
+            //    .HasForeignKey(a => a.UserId);
+
+            //modelBuilder.Entity<WorksComments>()
+            //    .HasOne(a => a.Users)
+            //    .WithMany(a => a.WorksComments)
+            //    .HasForeignKey(a => a.UserId);
+
+            //modelBuilder.Entity<Works>()
+            //    .HasOne(a => a.User)
+            //    .WithMany(a => a.Works)
+            //    .HasForeignKey(a => a.UserId);
+
+            //modelBuilder.Entity<WorksComments>()
+            //    .HasOne(a => a.Works)
+            //    .WithMany(a => a.WorksComments)
+            //    .HasForeignKey(a => a.WorksId);
+
+            //modelBuilder.Entity<Painting>()
+            //    .HasOne(a => a.Works)
+            //    .WithMany(a => a.Paintings)
+            //    .HasForeignKey(a => a.WorksId);
         }
     }
 }

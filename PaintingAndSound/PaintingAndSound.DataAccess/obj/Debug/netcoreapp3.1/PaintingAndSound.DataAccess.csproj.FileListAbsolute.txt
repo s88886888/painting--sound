@@ -54,3 +54,16 @@ C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csproj.CopyComplete
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.deps.json
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csprojAssemblyReference.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.AssemblyInfoInputs.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.AssemblyInfo.cs
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csproj.CopyComplete
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb

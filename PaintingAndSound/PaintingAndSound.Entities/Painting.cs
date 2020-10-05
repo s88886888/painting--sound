@@ -5,6 +5,7 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
+    [Table("Painting")]
     public class Painting : BasicsBase
     {
         /// <summary>
@@ -12,13 +13,7 @@ namespace PaintingAndSound.Entities
         /// </summary>
         public string PaintingUrl { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public User Users { get; set; }
-
-
-        public List<PaintingComment> PaintingComments { get; set; }
-
-
+        public int WorksId { get; set; }
+        public Works  Works { get; set; }
     }
 }

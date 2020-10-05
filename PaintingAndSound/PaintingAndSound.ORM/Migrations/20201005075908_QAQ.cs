@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PaintingAndSound.ORM.Migrations
 {
-    public partial class QAQ15844 : Migration
+    public partial class QAQ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,8 +17,7 @@ namespace PaintingAndSound.ORM.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
                     TeamNumber = table.Column<int>(nullable: false),
-                    TeamSynopsis = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false)
+                    TeamSynopsis = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,7 +25,7 @@ namespace PaintingAndSound.ORM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -39,22 +38,15 @@ namespace PaintingAndSound.ORM.Migrations
                     Photo = table.Column<string>(nullable: true),
                     Synopsis = table.Column<string>(nullable: true),
                     PassWord = table.Column<string>(nullable: true),
-                    FansCount = table.Column<int>(nullable: false),
-                    TeamId = table.Column<int>(nullable: true)
+                    FansCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_Team_TeamId",
-                        column: x => x.TeamId,
-                        principalTable: "Team",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaintingComments",
+                name: "Fans",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -62,23 +54,68 @@ namespace PaintingAndSound.ORM.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
-                    PaintingId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaintingComments", x => x.Id);
+                    table.PrimaryKey("PK_Fans", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaintingComments_Users_UserId",
+                        name: "FK_Fans_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Paintings",
+                name: "UserTeam",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false),
+                    TeamId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTeam", x => new { x.UserId, x.TeamId });
+                    table.ForeignKey(
+                        name: "FK_UserTeam_Team_TeamId",
+                        column: x => x.TeamId,
+                        principalTable: "Team",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTeam_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Works",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    RadioId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Works", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Works_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Painting",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -87,21 +124,21 @@ namespace PaintingAndSound.ORM.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
                     PaintingUrl = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
+                    WorksId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Paintings", x => x.Id);
+                    table.PrimaryKey("PK_Painting", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Paintings_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Painting_Works_WorksId",
+                        column: x => x.WorksId,
+                        principalTable: "Works",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Radios",
+                name: "Radio",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -109,22 +146,22 @@ namespace PaintingAndSound.ORM.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
-                    RadioUrl = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
+                    WorksId = table.Column<int>(nullable: false),
+                    RadioUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Radios", x => x.Id);
+                    table.PrimaryKey("PK_Radio", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Radios_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Radio_Works_WorksId",
+                        column: x => x.WorksId,
+                        principalTable: "Works",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RadioComments",
+                name: "WorksComments",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -132,77 +169,88 @@ namespace PaintingAndSound.ORM.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
-                    RadioId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: true),
+                    WorksId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RadioComments", x => x.Id);
+                    table.PrimaryKey("PK_WorksComments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RadioComments_Radios_RadioId",
-                        column: x => x.RadioId,
-                        principalTable: "Radios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RadioComments_Users_UserId",
+                        name: "FK_WorksComments_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_WorksComments_Works_WorksId",
+                        column: x => x.WorksId,
+                        principalTable: "Works",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaintingComments_UserId",
-                table: "PaintingComments",
+                name: "IX_Fans_UserId",
+                table: "Fans",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Paintings_UserId",
-                table: "Paintings",
-                column: "UserId");
+                name: "IX_Painting_WorksId",
+                table: "Painting",
+                column: "WorksId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RadioComments_RadioId",
-                table: "RadioComments",
-                column: "RadioId");
+                name: "IX_Radio_WorksId",
+                table: "Radio",
+                column: "WorksId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_RadioComments_UserId",
-                table: "RadioComments",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Radios_UserId",
-                table: "Radios",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_TeamId",
-                table: "Users",
+                name: "IX_UserTeam_TeamId",
+                table: "UserTeam",
                 column: "TeamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Works_UserId",
+                table: "Works",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorksComments_UserId",
+                table: "WorksComments",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorksComments_WorksId",
+                table: "WorksComments",
+                column: "WorksId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PaintingComments");
+                name: "Fans");
 
             migrationBuilder.DropTable(
-                name: "Paintings");
+                name: "Painting");
 
             migrationBuilder.DropTable(
-                name: "RadioComments");
+                name: "Radio");
 
             migrationBuilder.DropTable(
-                name: "Radios");
+                name: "UserTeam");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "WorksComments");
 
             migrationBuilder.DropTable(
                 name: "Team");
+
+            migrationBuilder.DropTable(
+                name: "Works");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }

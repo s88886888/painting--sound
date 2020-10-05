@@ -39,3 +39,14 @@ C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\n
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CopyComplete
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.dll
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.deps.json
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.csprojAssemblyReference.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfoInputs.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfo.cs
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CopyComplete
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.ViewModel\obj\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb

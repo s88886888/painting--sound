@@ -19,6 +19,32 @@ namespace PaintingAndSound.ORM.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("PaintingAndSound.Entities.Fans", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Fans");
+                });
+
             modelBuilder.Entity("PaintingAndSound.Entities.Painting", b =>
                 {
                     b.Property<int>("Id")
@@ -38,46 +64,14 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("PaintingUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("WorksId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WorksId");
 
-                    b.ToTable("Paintings");
-                });
-
-            modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PaintingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PaintingId");
-
-                    b.ToTable("PaintingComments");
+                    b.ToTable("Painting");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
@@ -99,48 +93,15 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("RadioUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("WorksId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WorksId")
+                        .IsUnique();
 
-                    b.ToTable("Radios");
-                });
-
-            modelBuilder.Entity("PaintingAndSound.Entities.RadioComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RadioId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RadioId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RadioComments");
+                    b.ToTable("Radio");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Team", b =>
@@ -163,9 +124,6 @@ namespace PaintingAndSound.ORM.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("TeamSynopsis")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -207,61 +165,146 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Synopsis")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TeamId")
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.UserTeam", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "TeamId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("UserTeam");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.Works", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RadioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Works");
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.Painting", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.WorksComments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WorksId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WorksId");
+
+                    b.ToTable("WorksComments");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.Fans", b =>
                 {
                     b.HasOne("PaintingAndSound.Entities.User", "Users")
-                        .WithMany("Paintings")
+                        .WithMany("Fans")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.PaintingComment", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.Painting", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Painting", null)
-                        .WithMany("PaintingComments")
-                        .HasForeignKey("PaintingId")
+                    b.HasOne("PaintingAndSound.Entities.Works", "Works")
+                        .WithMany("Paintings")
+                        .HasForeignKey("WorksId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.User", "Users")
-                        .WithMany("Radios")
+                    b.HasOne("PaintingAndSound.Entities.Works", "Works")
+                        .WithOne("Radio")
+                        .HasForeignKey("PaintingAndSound.Entities.Radio", "WorksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.UserTeam", b =>
+                {
+                    b.HasOne("PaintingAndSound.Entities.Team", "Team")
+                        .WithMany("UserTeams")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany("UserTeams")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.RadioComment", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.Works", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Radio", "Radios")
-                        .WithMany()
-                        .HasForeignKey("RadioId")
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany("Works")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("PaintingAndSound.Entities.User", null)
-                        .WithMany("RadioComments")
-                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("PaintingAndSound.Entities.User", b =>
+            modelBuilder.Entity("PaintingAndSound.Entities.WorksComments", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Team", null)
-                        .WithMany("Users")
-                        .HasForeignKey("TeamId");
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("PaintingAndSound.Entities.Works", "Works")
+                        .WithMany()
+                        .HasForeignKey("WorksId");
                 });
 #pragma warning restore 612, 618
         }

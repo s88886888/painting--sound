@@ -21,11 +21,11 @@ namespace PaintingAndSound.WebAPI.Controllers
     public class PaintingController : ControllerBase
     {
         private readonly IEntityRepository<Painting> entityRepositoryPainting;
-        private readonly IEntityRepository<PaintingComment> entityRepositoryPaintingComment;
+        private readonly IEntityRepository<WorksComments> entityRepositoryPaintingComment;
 
         private readonly IMapper mapper;
 
-        public PaintingController(IEntityRepository<Painting> _entityRepositoryPainting, IMapper _mapper, IEntityRepository<PaintingComment> _entityRepositoryPaintingComment)
+        public PaintingController(IEntityRepository<Painting> _entityRepositoryPainting, IMapper _mapper, IEntityRepository<WorksComments> _entityRepositoryPaintingComment)
         {
             entityRepositoryPainting = _entityRepositoryPainting;
             entityRepositoryPaintingComment = _entityRepositoryPaintingComment;
@@ -102,7 +102,7 @@ namespace PaintingAndSound.WebAPI.Controllers
             var paintions = await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
 
             var paintingCommentViewModel = new PaintingCommentViewModel();
-            var paintingComment = new PaintingComment();
+            var paintingComment = new WorksComments();
             if (paintions == null)
             {
                 return Ok("没有这幅画");
@@ -112,7 +112,7 @@ namespace PaintingAndSound.WebAPI.Controllers
                 //获取当前登入tokon的Id string类型
                 var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
 
-                paintingComment.UserId=Convert.ToInt32(user);
+                paintingComment.User.Id=Convert.ToInt32(user);
 
                 paintingCommentViewModel.PaintingId = paintions.Id;
 

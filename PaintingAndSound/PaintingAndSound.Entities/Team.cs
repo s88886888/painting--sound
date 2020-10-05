@@ -5,8 +5,13 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
-   public class Team:BasicsBase
+    [Table("Team")]
+    public class Team:BasicsBase
     {
+        public Team()
+        {
+            UserTeams = new List<UserTeam>();
+        }
         /// <summary>
         /// 成员数量
         /// </summary>
@@ -16,10 +21,7 @@ namespace PaintingAndSound.Entities
         /// 团队简介
         /// </summary>
         public int TeamSynopsis { get; set; }
+        public List<UserTeam>  UserTeams { get; set; }
 
-
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public List<User> Users { get; set; }
     }
 }

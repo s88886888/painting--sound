@@ -5,15 +5,15 @@ using System.Text;
 
 namespace PaintingAndSound.Entities
 {
-  public  class Radio:BasicsBase
+    [Table("Radio")]
+    public class Radio:BasicsBase
     {
+        public int WorksId { get; set; }
+        public Works  Works { get; set; }
         /// <summary>
         /// 音乐文件路径
         /// </summary>
         /// 
         public string RadioUrl { get; set; }
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public User Users { get; set; }
     }
 }
