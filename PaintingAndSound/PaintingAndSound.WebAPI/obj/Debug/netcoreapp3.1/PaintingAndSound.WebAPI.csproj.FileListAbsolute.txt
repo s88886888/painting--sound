@@ -332,8 +332,6 @@ C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bi
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.csprojAssemblyReference.cache
-C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.AssemblyInfoInputs.cache
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.AssemblyInfo.cs
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.RazorTargetAssemblyInfo.cache
@@ -343,3 +341,5 @@ C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\ob
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.dll
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.pdb
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.genruntimeconfig.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.WebAPI\obj\Debug\netcoreapp3.1\PaintingAndSound.WebAPI.MvcApplicationPartsAssemblyInfo.cache

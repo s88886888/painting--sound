@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ORM;
@@ -33,7 +34,13 @@ namespace PaintingAndSound.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             AppSettings.Init(Configuration);
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(setup=> {
+
+                setup.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            
+            });
+
+
             services.AddControllersWithViews();
             // ≈‰÷√ π”√ Sql Server µƒ EF Context
             services.AddDbContext<HSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HsContext")));

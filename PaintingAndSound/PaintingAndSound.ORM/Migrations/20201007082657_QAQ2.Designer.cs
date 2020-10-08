@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaintingAndSound.ORM;
 
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    partial class HSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201007082657_QAQ2")]
+    partial class QAQ2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

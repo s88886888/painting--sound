@@ -23,10 +23,10 @@ namespace PaintingAndSound.ORM
         {
             modelBuilder.Entity<UserTeam>().HasKey(a => new { a.UserId, a.TeamId });
 
-            modelBuilder.Entity<Radio>()
-                .HasOne(a => a.Works)
-                .WithOne(a => a.Radio)
-                .HasForeignKey<Radio>(a => a.WorksId);
+            //modelBuilder.Entity<Radio>()
+            //    .HasOne(a => a.Works)
+            //    .WithOne(a => a.Radio)
+            //    .HasForeignKey<Radio>(a => a.Works.Id);
 
 
             //modelBuilder.Entity<Fans>()

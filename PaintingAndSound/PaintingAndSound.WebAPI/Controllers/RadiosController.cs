@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
@@ -44,7 +45,7 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// </summary>
         /// <param name="radioViewModel"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("{radioViewModel}")]
         public async Task<IActionResult> CreateRadioAsync([FromBody] RadioViewModel radioViewModel)
         {
 
@@ -58,8 +59,7 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpDelete]
-       
+        [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteRadioAsync(int Id)
         {
             var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
@@ -70,31 +70,22 @@ namespace PaintingAndSound.WebAPI.Controllers
             entityRepositoryRadio.DeleteAndSave(radio);
             return Ok("Ok");
         }
-        [HttpPatch]//局部更新
-        public async Task<IActionResult> UpdateRadioAsync([FromBody] RadioViewModel radioViewModel)
+        [HttpPatch("{Id}")]//局部更新
+        public async Task<IActionResult> UpdateRadioAsync(int Id, JsonPatchDocument<RadioViewModel> patchDocument)
         {
-            if (radioViewModel == null)
+            var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
+            if (radio == null)
             {
                 return NotFound();
             }
-            Radio radio = new Radio();
-            mapper.Map(radioViewModel, radio);
-            await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);//如果数据库中有就增加，没有就修改
-            return Ok("Ok");
-        }
+            var dtoToPatch = mapper.Map<RadioViewModel>(radio);
+            patchDocument.ApplyTo(dtoToPatch);
 
-        //public async Task<object> GetJwtStr(string name, string pass)
-        //{
-        //    // 将用户id和角色名，作为单独的自定义变量封装进 token 字符串中。
-        //    TokenModelJwt tokenModel = new TokenModelJwt { Uid = 1, Role = "Admin" };
-        //    var jwtStr = JwtHelper.IssueJ
-        //        wt(tokenModel);//登录，获取到一定规则的 Token 令牌
-        //    var suc = true;
-        //    return Ok(new
-        //    {
-        //        success = suc,
-        //        token = jwtStr
-        //    });
-        //}
+            mapper.Map(dtoToPatch, radio);
+            entityRepositoryRadio.Edit(radio);
+            await entityRepositoryRadio.SaveAsyn();
+
+            return NoContent();
+        }
     }
 }

@@ -40,4 +40,3 @@ C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Debug\netcoreapp3.1\PaintingAndSound.Entities.AssemblyInfo.cs
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
-C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Debug\netcoreapp3.1\PaintingAndSound.Entities.csprojAssemblyReference.cache

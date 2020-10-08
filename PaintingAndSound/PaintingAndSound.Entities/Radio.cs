@@ -8,7 +8,6 @@ namespace PaintingAndSound.Entities
     [Table("Radio")]
     public class Radio:BasicsBase
     {
-        public int WorksId { get; set; }
         public Works  Works { get; set; }
         /// <summary>
         /// 音乐文件路径
