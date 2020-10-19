@@ -89,6 +89,21 @@ namespace PaintingAndSound.WebAPI.Controllers
 
             return NoContent();
         }
+        /// <summary>
+        /// 搜素FM的一条信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public IActionResult GetRadiosById(int id)
+        {
+            if (!entityRepositoryRadio.PaintingExists(id))
+            {
+                return NotFound("找不到该幅画");
+            }
+            var painting = entityRepositoryRadio.GetSingle(id);
+            return Ok(painting);
+        }
 
 
 

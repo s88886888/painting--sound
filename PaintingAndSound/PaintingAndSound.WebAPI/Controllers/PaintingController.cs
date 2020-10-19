@@ -121,41 +121,42 @@ namespace PaintingAndSound.WebAPI.Controllers
             await entityRepositoryPaintingComment.SaveAsyn();
             return Ok("评论成功");
         }
-
         /// <summary>
-        /// 搜素一个画画的信息
+        /// 搜素一条画的信息            
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetPaintingById(int id)
+        [HttpGet("{id}")]
+        public IActionResult GetPaintingById(int id)
         {
             if (!entityRepositoryPainting.PaintingExists(id))
             {
                 return NotFound("找不到该幅画");
             }
             var painting = entityRepositoryPainting.GetSingle(id);
-            return Ok(painting);
-        }
-        /// <summary>
-        /// 搜素画的照片
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<IActionResult> GetPaintingByPhoto(int id)
-        {
-            if (!entityRepositoryPainting.PaintingExists(id))
-            {
-                return NotFound("找不到该幅画");
-            }
-           var painting = entityRepositoryPainting.GetSingle(id);
-            if (painting == null)
-            {
-                return NotFound("找不到该幅画");
-            }
-
-
 
             return Ok(painting);
         }
+        ///// <summary>
+        ///// 搜素画的照片
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public async Task<IActionResult> GetPaintingByPhoto(int id)
+        //{
+        //    if (!entityRepositoryPainting.PaintingExists(id))
+        //    {
+        //        return NotFound("找不到该幅画");
+        //    }
+        //    var painting = entityRepositoryPainting.GetSingle(id);
+        //    if (painting == null)
+        //    {
+        //        return NotFound("找不到该幅画");
+        //    }
+
+
+
+        //    return Ok(painting);
+        //}
     }
 }

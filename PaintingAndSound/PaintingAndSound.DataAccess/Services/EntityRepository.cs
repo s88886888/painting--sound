@@ -241,6 +241,10 @@ namespace PaintingAndSound.DataAccess.Services
         {
             return _HSDbContext.Paintings.Any(t => t.Id == id);
         }
+        public bool RadiosExists(int id)
+        {
+            return _HSDbContext.Radios.Any(t => t.Id == id);
+        }
 
 
         #region 异步方法的具体实现

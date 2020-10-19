@@ -31,6 +31,13 @@
             <param name="paintingCommentViewModels"></param>
             <returns></returns>
         </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.GetPaintingById(System.Int32)">
+            <summary>
+            搜素一条画的信息            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.GetRadioAll">
             <summary>
             获取所有音乐
@@ -49,6 +56,21 @@
             删除模块
             </summary>
             <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.UpdateRadioAsync(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{PaintingAndSound.ViewModel.RadioViewModel})">
+            <summary>
+            局部更新
+            </summary>
+            <param name="Id"></param>
+            <param name="patchDocument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.RadiosController.GetRadiosById(System.Int32)">
+            <summary>
+            搜素FM的一条信息
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:PaintingAndSound.WebAPI.Controllers.TokenController.Login(PaintingAndSound.WebAPI.Controllers.LoginParameter)">

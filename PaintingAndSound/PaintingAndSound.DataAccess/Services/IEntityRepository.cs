@@ -164,6 +164,8 @@ namespace PaintingAndSound.DataAccess.Services
 
         bool PaintingExists(int id);
 
+        bool RadiosExists(int id);
+
         #region 异步方法定义
         Task<bool> SaveAsyn();
         Task<IQueryable<T>> GetAllAsyn();
