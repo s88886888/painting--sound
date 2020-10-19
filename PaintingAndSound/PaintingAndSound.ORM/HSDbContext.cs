@@ -19,14 +19,15 @@ namespace PaintingAndSound.ORM
         public DbSet<Team> Teams { get; set; }
         public DbSet<WorksComments> WorksComments { get; set; }
         public DbSet<UserTeam>  UserTeams { get; set; }
+        public DbSet<PaintionPhotos>  PaintionPhotos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserTeam>().HasKey(a => new { a.UserId, a.TeamId });
 
-            //modelBuilder.Entity<Radio>()
-            //    .HasOne(a => a.Works)
-            //    .WithOne(a => a.Radio)
-            //    .HasForeignKey<Radio>(a => a.Works.Id);
+            //modelBuilder.Entity<Painting>()
+            //    .HasOne(a => a.User)
+            //    .WithOne(a => a.Painting)
+            //    .HasForeignKey<Painting>(a => a.User.Id);
 
 
             //modelBuilder.Entity<Fans>()

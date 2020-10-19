@@ -64,14 +64,48 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("PaintingUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorksId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WorksId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.HasIndex("WorksId");
 
                     b.ToTable("Painting");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.PaintionPhotos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagesUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaintingId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaintingId");
+
+                    b.ToTable("PaintionPhotos");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
@@ -93,10 +127,15 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("RadioUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("WorksId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("WorksId");
 
@@ -200,6 +239,12 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PaintingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RadioId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -252,15 +297,34 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.Painting", b =>
                 {
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany("Paintings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("PaintingAndSound.Entities.Works", "Works")
                         .WithMany("Paintings")
-                        .HasForeignKey("WorksId")
+                        .HasForeignKey("WorksId");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.PaintionPhotos", b =>
+                {
+                    b.HasOne("PaintingAndSound.Entities.Painting", "Painting")
+                        .WithMany("PaintionPhotos")
+                        .HasForeignKey("PaintingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
                 {
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany("Radios")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("PaintingAndSound.Entities.Works", "Works")
                         .WithMany("Radios")
                         .HasForeignKey("WorksId");

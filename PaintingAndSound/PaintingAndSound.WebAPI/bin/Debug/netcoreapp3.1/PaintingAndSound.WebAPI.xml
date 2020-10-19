@@ -105,6 +105,25 @@
             <param name="loginParameter"></param>
             <returns></returns>
         </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.WorksController.GetWorksAll">
+            <summary>
+            获取全部作品的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.WorksController.GetWorksById(System.Int32)">
+            <summary>
+            查询一条作品的信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PaintingAndSound.WebAPI.Controllers.WorksController.AddWorks(PaintingAndSound.ViewModel.WorkViewModel)">
+            <summary>
+            创建作品
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PaintingAndSound.WebAPI.JWT.AppHelper.GetToken(PaintingAndSound.Entities.User)">
             <summary>
             生成token

@@ -245,7 +245,14 @@ namespace PaintingAndSound.DataAccess.Services
         {
             return _HSDbContext.Radios.Any(t => t.Id == id);
         }
-
+        public bool WorksExists(int id)
+        {
+            return _HSDbContext.Works.Any(t => t.Id == id);
+        }
+        public bool WorksCommentsExists(int id)
+        {
+            return _HSDbContext.WorksComments.Any(t => t.Id == id);
+        }
 
         #region 异步方法的具体实现
         public virtual async Task<bool> SaveAsyn()
@@ -359,11 +366,7 @@ namespace PaintingAndSound.DataAccess.Services
         {
             var dbSet = _HSDbContext.Set<T>();
             return dbSet.Any(x => x.Id == id);
-        }
-
-
-
-
+        }   
         #endregion
 
     }

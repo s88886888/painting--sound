@@ -14,6 +14,8 @@ namespace PaintingAndSound.Entities
             //WorksComments = new List<WorksComments>();
             UserTeams = new List<UserTeam>();
             Fans = new List<Fans>();
+            Radios = new List<Radio>();
+            Paintings = new List<Painting>();
         }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
@@ -44,5 +46,7 @@ namespace PaintingAndSound.Entities
         /// </summary>
         public List<Fans>  Fans { get; set; }
         public List<UserTeam>  UserTeams { get; set; }
+        public List<Radio> Radios { get; set; }
+        public List<Painting> Paintings { get; set; }
     }
 }

@@ -1,0 +1,14 @@
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.deps.json
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.ORM.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Release\netcoreapp3.1\PaintingAndSound.ORM.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfoInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfo.cs
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CoreCompileInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CopyComplete
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Release\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
