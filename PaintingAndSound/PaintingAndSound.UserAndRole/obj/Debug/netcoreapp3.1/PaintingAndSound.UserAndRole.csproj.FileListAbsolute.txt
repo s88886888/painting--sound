@@ -56,3 +56,17 @@ C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.UserAndRo
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CopyComplete
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
 C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.deps.json
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.pdb
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfoInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.AssemblyInfo.cs
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CoreCompileInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.csproj.CopyComplete
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.dll
+C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.UserAndRole\obj\Debug\netcoreapp3.1\PaintingAndSound.UserAndRole.pdb

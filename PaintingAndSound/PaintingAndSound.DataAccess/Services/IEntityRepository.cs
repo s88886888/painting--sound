@@ -161,6 +161,9 @@ namespace PaintingAndSound.DataAccess.Services
 
         T1 GetSingleOther<T1>(int id) where T1 : class, new();
 
+
+        bool PaintingExists(int id);
+
         #region 异步方法定义
         Task<bool> SaveAsyn();
         Task<IQueryable<T>> GetAllAsyn();

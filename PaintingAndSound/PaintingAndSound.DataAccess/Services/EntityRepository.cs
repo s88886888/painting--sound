@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PaintingAndSound.DataAccess.Services
 {
-   public class EntityRepository<T>:IEntityRepository<T>where T: BasicsBase, new()
+    public class EntityRepository<T> : IEntityRepository<T> where T : BasicsBase, new()
     {
         readonly HSDbContext _HSDbContext;
 
@@ -32,7 +32,7 @@ namespace PaintingAndSound.DataAccess.Services
             }
         }
 
-        public virtual IQueryable<T> GetAll() => _HSDbContext.Set<T>().Where(a=>a.IsDelete==false);
+        public virtual IQueryable<T> GetAll() => _HSDbContext.Set<T>().Where(a => a.IsDelete == false);
 
         public virtual IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
@@ -226,10 +226,20 @@ namespace PaintingAndSound.DataAccess.Services
             return dbSet.Any(predicate);
         }
 
-        public virtual T1 GetSingleOther<T1>(int id) where T1 : class,  new()
+        public virtual T1 GetSingleOther<T1>(int id) where T1 : class, new()
         {
             var dbSet = _HSDbContext.Set<T1>();
             return dbSet.Find(id);
+        }
+
+        /// <summary>
+        /// 判断是否有相应==是否存在数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool PaintingExists(int id)
+        {
+            return _HSDbContext.Paintings.Any(t => t.Id == id);
         }
 
 
@@ -347,7 +357,7 @@ namespace PaintingAndSound.DataAccess.Services
             return dbSet.Any(x => x.Id == id);
         }
 
-       
+
 
 
         #endregion

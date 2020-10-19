@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ViewModel;
-using PaintingAndSound.WebAPI.JWT;
 
 namespace PaintingAndSound.WebAPI.Controllers
 {
@@ -70,7 +66,13 @@ namespace PaintingAndSound.WebAPI.Controllers
             entityRepositoryRadio.DeleteAndSave(radio);
             return Ok("Ok");
         }
-        [HttpPatch("{Id}")]//局部更新
+        /// <summary>
+        /// 局部更新
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="patchDocument"></param>
+        /// <returns></returns>
+        [HttpPatch("{Id}")]
         public async Task<IActionResult> UpdateRadioAsync(int Id, JsonPatchDocument<RadioViewModel> patchDocument)
         {
             var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
@@ -87,5 +89,14 @@ namespace PaintingAndSound.WebAPI.Controllers
 
             return NoContent();
         }
+
+
+
+
+
+
+
+
+
     }
 }

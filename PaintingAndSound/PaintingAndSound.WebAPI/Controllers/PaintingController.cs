@@ -100,7 +100,6 @@ namespace PaintingAndSound.WebAPI.Controllers
         {
             //前端给出具体的画Id----进行评论
             var paintions = await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
-
             var paintingCommentViewModel = new PaintingCommentViewModel();
             var paintingComment = new WorksComments();
             if (paintions == null)
@@ -111,22 +110,52 @@ namespace PaintingAndSound.WebAPI.Controllers
             {
                 //获取当前登入tokon的Id string类型
                 var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
-
-                paintingComment.User.Id=Convert.ToInt32(user);
-
+                paintingComment.User.Id = Convert.ToInt32(user);
                 paintingCommentViewModel.PaintingId = paintions.Id;
-
                 paintingCommentViewModel.Name = paintingCommentViewModels.Name;
-
                 paintingCommentViewModel.Comments = paintingCommentViewModels.Comments;
-
                 paintingCommentViewModel.DateTime = paintingCommentViewModels.DateTime;
             }
-           
             mapper.Map(paintingCommentViewModel, paintingComment);
             entityRepositoryPaintingComment.Add(paintingComment);
             await entityRepositoryPaintingComment.SaveAsyn();
             return Ok("评论成功");
+        }
+
+        /// <summary>
+        /// 搜素一个画画的信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetPaintingById(int id)
+        {
+            if (!entityRepositoryPainting.PaintingExists(id))
+            {
+                return NotFound("找不到该幅画");
+            }
+            var painting = entityRepositoryPainting.GetSingle(id);
+            return Ok(painting);
+        }
+        /// <summary>
+        /// 搜素画的照片
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> GetPaintingByPhoto(int id)
+        {
+            if (!entityRepositoryPainting.PaintingExists(id))
+            {
+                return NotFound("找不到该幅画");
+            }
+           var painting = entityRepositoryPainting.GetSingle(id);
+            if (painting == null)
+            {
+                return NotFound("找不到该幅画");
+            }
+
+
+
+            return Ok(painting);
         }
     }
 }

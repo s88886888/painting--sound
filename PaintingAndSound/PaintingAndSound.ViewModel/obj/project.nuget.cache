@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cz1PPpTySiFolyWCYz5eJ2BSlSv8Ke44Xi3NtnryhgZYFtDlybJ18IGr6ZAaK/vfHHNJ1Z2I2v5j0g/iKQGcbw==",
+  "dgSpecHash": "5bFblpTBCrbKbtsBNCJY36hvCgw91eTHZr7+/yRITBKP9y8BWhLFGTkiHv+28tatk2bNVvw5jFuKAfYIxqXIpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\painting--sound\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj",
+  "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\项目\\painting--sound\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
