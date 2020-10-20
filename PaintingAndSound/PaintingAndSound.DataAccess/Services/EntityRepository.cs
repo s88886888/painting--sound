@@ -34,6 +34,9 @@ namespace PaintingAndSound.DataAccess.Services
 
         public virtual IQueryable<T> GetAll() => _HSDbContext.Set<T>().Where(a => a.IsDelete == false);
 
+
+
+
         public virtual IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = _HSDbContext.Set<T>();
@@ -366,8 +369,32 @@ namespace PaintingAndSound.DataAccess.Services
         {
             var dbSet = _HSDbContext.Set<T>();
             return dbSet.Any(x => x.Id == id);
-        }   
+        }
         #endregion
+
+
+        public bool PaintingExistsByUserId(int id)
+        {
+            return _HSDbContext.Paintings.Any(t => t.UserId == id);
+        }
+        public bool RadiosExistsByUserId(int id)
+        {
+            return _HSDbContext.Radios.Any(t => t.UserId == id);
+        }
+
+        public List<Painting> GetPaintingAllByUserId(int userid)
+        {
+            return _HSDbContext.Paintings.Where(t => t.UserId == userid).ToList();
+        }
+        public List<Radio> GetRadiosAllByUserId(int userid)
+        {
+            return _HSDbContext.Radios.Where(t => t.UserId == userid).ToList();
+        }
+
+        public PaintionPhotos FindbyPaintingId(int id)
+        {
+            return _HSDbContext.PaintionPhotos.FirstOrDefault(t => t.PaintingId == id);
+        }
 
     }
 }

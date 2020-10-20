@@ -107,6 +107,8 @@ namespace PaintingAndSound.WebAPI
             services.AddScoped<IEntityRepository<Radio>, EntityRepository<Radio>>();
             services.AddScoped<IEntityRepository<Painting>, EntityRepository<Painting>>();
             services.AddScoped<IEntityRepository<WorksComments>, EntityRepository<WorksComments>>();
+            services.AddScoped<IEntityRepository<Works>, EntityRepository<Works>>();
+            services.AddScoped<IEntityRepository<PaintionPhotos>, EntityRepository<PaintionPhotos>>();
 
 
         }

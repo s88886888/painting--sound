@@ -47,7 +47,7 @@ namespace PaintingAndSound.WebAPI.Controllers
             return Ok(PaintingViewModel);
         }
         /// <summary>
-        /// 增加一个画画
+        /// 增加一个画集
         /// </summary>
         /// <param name="paintingViewModel"></param>
         /// <returns></returns>
@@ -55,10 +55,13 @@ namespace PaintingAndSound.WebAPI.Controllers
         public async Task<IActionResult> CreatePaintingAsync([FromBody] PaintingViewModel paintingViewModel)
         {
 
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
             Painting painting = new Painting();
+            paintingViewModel.UserId = Convert.ToInt32(user);
             mapper.Map(paintingViewModel, painting);
             await entityRepositoryPainting.AddOrEditAndSaveAsyn(painting);
             return Ok("OK");
+
         }
         /// <summary>
         /// 删除模块

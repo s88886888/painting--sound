@@ -10,7 +10,7 @@ using PaintingAndSound.ORM;
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    [Migration("20201019103044_QAQ")]
+    [Migration("20201020120004_QAQ")]
     partial class QAQ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,14 +37,29 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UsersId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UsersId");
 
                     b.ToTable("Fans");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.FansAndUser", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FansId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "FansId");
+
+                    b.HasIndex("FansId");
+
+                    b.ToTable("FansAndUsers");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Painting", b =>
@@ -69,14 +84,9 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WorksId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("WorksId");
 
                     b.ToTable("Painting");
                 });
@@ -120,6 +130,9 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Iamge")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -132,16 +145,46 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WorksId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WorksId");
-
                     b.ToTable("Radio");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.RadioMusic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detailed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RadioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RadioMusicUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RadioId");
+
+                    b.ToTable("RadioMusic");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Team", b =>
@@ -244,13 +287,18 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<int>("PaintingId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RadioId")
+                    b.Property<int?>("RadiosId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaintingId")
+                        .IsUnique();
+
+                    b.HasIndex("RadiosId");
 
                     b.HasIndex("UserId");
 
@@ -291,6 +339,19 @@ namespace PaintingAndSound.ORM.Migrations
             modelBuilder.Entity("PaintingAndSound.Entities.Fans", b =>
                 {
                     b.HasOne("PaintingAndSound.Entities.User", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersId");
+                });
+
+            modelBuilder.Entity("PaintingAndSound.Entities.FansAndUser", b =>
+                {
+                    b.HasOne("PaintingAndSound.Entities.Fans", "Fans")
+                        .WithMany("User")
+                        .HasForeignKey("FansId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("Fans")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -304,10 +365,6 @@ namespace PaintingAndSound.ORM.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("PaintingAndSound.Entities.Works", "Works")
-                        .WithMany("Paintings")
-                        .HasForeignKey("WorksId");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.PaintionPhotos", b =>
@@ -326,10 +383,15 @@ namespace PaintingAndSound.ORM.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("PaintingAndSound.Entities.Works", "Works")
-                        .WithMany("Radios")
-                        .HasForeignKey("WorksId");
+            modelBuilder.Entity("PaintingAndSound.Entities.RadioMusic", b =>
+                {
+                    b.HasOne("PaintingAndSound.Entities.Radio", "Radio")
+                        .WithMany("RadioMusics")
+                        .HasForeignKey("RadioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.UserTeam", b =>
@@ -349,11 +411,19 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.Works", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.User", "User")
-                        .WithMany("Works")
-                        .HasForeignKey("UserId")
+                    b.HasOne("PaintingAndSound.Entities.Painting", "Paintings")
+                        .WithOne("Works")
+                        .HasForeignKey("PaintingAndSound.Entities.Works", "PaintingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PaintingAndSound.Entities.Radio", "Radios")
+                        .WithMany()
+                        .HasForeignKey("RadiosId");
+
+                    b.HasOne("PaintingAndSound.Entities.User", "User")
+                        .WithMany("Works")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.WorksComments", b =>

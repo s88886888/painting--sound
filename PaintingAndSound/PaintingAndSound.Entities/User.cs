@@ -13,7 +13,7 @@ namespace PaintingAndSound.Entities
             Works = new List<Works>();
             //WorksComments = new List<WorksComments>();
             UserTeams = new List<UserTeam>();
-            Fans = new List<Fans>();
+            Fans = new List<FansAndUser>();
             Radios = new List<Radio>();
             Paintings = new List<Painting>();
         }
@@ -44,7 +44,7 @@ namespace PaintingAndSound.Entities
         /// <summary>
         /// 用户粉丝数
         /// </summary>
-        public List<Fans>  Fans { get; set; }
+        public List<FansAndUser>  Fans { get; set; }
         public List<UserTeam>  UserTeams { get; set; }
         public List<Radio> Radios { get; set; }
         public List<Painting> Paintings { get; set; }

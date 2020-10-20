@@ -10,6 +10,28 @@ namespace PaintingAndSound.DataAccess.Services
 {
     public interface IEntityRepository<T> where T : BasicsBase, new()
     {
+
+
+        /// <summary>
+        /// 根据Id查找全部数据
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public List<Painting> GetPaintingAllByUserId(int userid);
+        public List<Radio> GetRadiosAllByUserId(int userid);
+        public PaintionPhotos FindbyPaintingId(int id);
+
+
+        /// <summary>
+        /// 查找是否有这个UserId回响
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool PaintingExistsByUserId(int id);
+
+        public bool RadiosExistsByUserId(int id);
+
+
         /// <summary>
         /// 持久化数据
         /// </summary>

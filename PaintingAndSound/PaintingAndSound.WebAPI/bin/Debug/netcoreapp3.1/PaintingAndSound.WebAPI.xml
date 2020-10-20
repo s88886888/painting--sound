@@ -12,7 +12,7 @@
         </member>
         <member name="M:PaintingAndSound.WebAPI.Controllers.PaintingController.CreatePaintingAsync(PaintingAndSound.ViewModel.AutoMapper.PaintingViewModel)">
             <summary>
-            增加一个画画
+            增加一个画集
             </summary>
             <param name="paintingViewModel"></param>
             <returns></returns>
@@ -116,12 +116,6 @@
             查询一条作品的信息
             </summary>
             <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PaintingAndSound.WebAPI.Controllers.WorksController.AddWorks(PaintingAndSound.ViewModel.WorkViewModel)">
-            <summary>
-            创建作品
-            </summary>
             <returns></returns>
         </member>
         <member name="M:PaintingAndSound.WebAPI.JWT.AppHelper.GetToken(PaintingAndSound.Entities.User)">

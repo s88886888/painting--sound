@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
@@ -22,20 +23,24 @@ namespace PaintingAndSound.WebAPI.Controllers
         private readonly IEntityRepository<WorksComments> entityRepositoryWorksComment;
         private readonly IEntityRepository<Painting> entityRepositoryPainting;
         private readonly IEntityRepository<Radio> entityRepositoryRadio;
+        private readonly IEntityRepository<PaintionPhotos> entityRepositoryPaintionPhotos;
         private readonly IMapper mapper;
 
         public WorksController(
             IEntityRepository<Works> _entityRepositoryWorks,
             IEntityRepository<WorksComments> _entityRepositoryWorksComment,
             IEntityRepository<Painting> _entityRepositoryPainting,
-            IEntityRepository<Radio> _entityRepositoryRadio
+            IEntityRepository<Radio> _entityRepositoryRadio,
+            IEntityRepository<PaintionPhotos> _entityRepositoryPaintionPhotos,
+        IMapper _mapper
             )
         {
             entityRepositoryWorks = _entityRepositoryWorks;
             entityRepositoryWorksComment = _entityRepositoryWorksComment;
             entityRepositoryPainting = _entityRepositoryPainting;
             entityRepositoryRadio = _entityRepositoryRadio;
-
+            entityRepositoryPaintionPhotos = _entityRepositoryPaintionPhotos;
+            mapper = _mapper;
         }
         /// <summary>
         /// 获取全部作品的信息
@@ -69,19 +74,35 @@ namespace PaintingAndSound.WebAPI.Controllers
             return Ok(WorksViewModel);
 
         }
-        /// <summary>
-        /// 创建作品
-        /// </summary>
-        /// <returns></returns>
-        // POST api/<WorksController>
-        [HttpPost("AddWorks")]
-        public async Task<IActionResult> AddWorks([FromBody] WorkViewModel workViewModel)
-        {
 
-            var Works = new Works();
-            mapper.Map(Works, workViewModel);
+        [HttpPost("AddWorks")]
+        public IActionResult AddWorks(int radioId, int PaintingId, [FromBody] WorkViewModel workViewModel)
+        {
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+
+            if (!entityRepositoryPainting.PaintingExistsByUserId(Convert.ToInt32(user)))
+            {
+                return NotFound("您没有创建过画集");
+            }
+            else if (!entityRepositoryRadio.RadiosExistsByUserId(Convert.ToInt32(user)))
+            {
+
+                return NotFound("您没有创建过FM音频");
+            }
+            workViewModel.RadioId = radioId;
+            workViewModel.PaintingId = PaintingId;
+            workViewModel.UserId = Convert.ToInt32(user);
+            //if (entityRepositoryPaintionPhotos.FindbyPaintingId(PaintingId)==null)
+            //{
+            //    return NotFound("图集没有照片");
+            //}
+            var works = new Works();
+            //works.PaintingId = PaintingId;
+            mapper.Map(works, workViewModel);
+            entityRepositoryWorks.AddAndSave(works);
             return Ok("添加成功");
         }
+
 
         // PUT api/<WorksController>/5
         [HttpPut("{id}")]

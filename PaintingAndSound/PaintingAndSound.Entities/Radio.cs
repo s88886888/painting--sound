@@ -9,7 +9,6 @@ namespace PaintingAndSound.Entities
     public class Radio:BasicsBase
     {
         
-        public Works  Works { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         /// <summary>
@@ -17,5 +16,10 @@ namespace PaintingAndSound.Entities
         /// </summary>
         /// 
         public string RadioUrl { get; set; }
+        /// <summary>
+        /// Radio封面
+        /// </summary>
+        public string Iamge { get; set; }
+        public List<RadioMusic>  RadioMusics { get; set; }
     }
 }

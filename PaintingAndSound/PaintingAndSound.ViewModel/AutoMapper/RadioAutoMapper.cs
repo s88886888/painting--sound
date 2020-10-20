@@ -15,6 +15,11 @@ namespace PaintingAndSound.ViewModel.AutoMapper
 
             CreateMap<Painting, PaintingViewModel>();//PaintingAutoMapper
             CreateMap<PaintingViewModel, Painting>();
+
+
+            CreateMap<Works, WorkViewModel>();
+            CreateMap<WorkViewModel, Works>();
+
         }
     }
 }

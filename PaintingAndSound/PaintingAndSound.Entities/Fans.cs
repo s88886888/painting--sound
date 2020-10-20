@@ -8,8 +8,11 @@ namespace PaintingAndSound.Entities
     [Table("Fans")]
     public class Fans:BasicsBase
     {
-        public int UserId { get; set; }
+        public Fans()
+        {
+            User = new List<FansAndUser>();
+        }
         public User Users { get; set; }
-
+        public List<FansAndUser> User { get; set; }
     }
 }

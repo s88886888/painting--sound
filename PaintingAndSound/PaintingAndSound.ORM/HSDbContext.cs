@@ -18,12 +18,13 @@ namespace PaintingAndSound.ORM
         public DbSet<User> Users { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<WorksComments> WorksComments { get; set; }
-        public DbSet<UserTeam>  UserTeams { get; set; }
-        public DbSet<PaintionPhotos>  PaintionPhotos { get; set; }
+        public DbSet<UserTeam> UserTeams { get; set; }
+        public DbSet<PaintionPhotos> PaintionPhotos { get; set; }
+        public DbSet<FansAndUser> FansAndUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserTeam>().HasKey(a => new { a.UserId, a.TeamId });
-
+            modelBuilder.Entity<FansAndUser>().HasKey(a => new { a.UserId, a.FansId });
             //modelBuilder.Entity<Painting>()
             //    .HasOne(a => a.User)
             //    .WithOne(a => a.Painting)

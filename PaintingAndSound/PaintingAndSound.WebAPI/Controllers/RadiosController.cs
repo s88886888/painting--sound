@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -41,10 +44,11 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// </summary>
         /// <param name="radioViewModel"></param>
         /// <returns></returns>
-        [HttpPost("{radioViewModel}")]
+        [HttpPost("CreateRadioAsync")]
         public async Task<IActionResult> CreateRadioAsync([FromBody] RadioViewModel radioViewModel)
         {
-
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+            radioViewModel.UserId = Convert.ToInt32(user);
             Radio radio = new Radio();
             mapper.Map(radioViewModel, radio);
             await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);

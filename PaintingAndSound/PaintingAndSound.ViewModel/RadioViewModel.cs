@@ -18,7 +18,9 @@ namespace PaintingAndSound.ViewModel
         public bool IsDelete { get; set; } = false;
         [Required]
         [Display(Name = "路径")]
-        public string RadioUrl { get; set; }
+        public string Iamge { get; set; }
+
+        public int UserId { get; set; }
     }
 }
 
