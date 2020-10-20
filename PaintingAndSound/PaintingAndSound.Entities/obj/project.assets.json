@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\": {}
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -19,6 +20,9 @@
       "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\项目\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\大大卷泡泡乐\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
