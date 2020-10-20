@@ -89,14 +89,18 @@ namespace PaintingAndSound.WebAPI.Controllers
 
                 return NotFound("您没有创建过FM音频");
             }
-            workViewModel.RadioId = radioId;
-            workViewModel.PaintingId = PaintingId;
-            workViewModel.UserId = Convert.ToInt32(user);
+            //workViewModel.UserId = Convert.ToInt32(user);
+            //workViewModel.RadioId = radioId;
+            //workViewModel.PaintingId = PaintingId;
+
             //if (entityRepositoryPaintionPhotos.FindbyPaintingId(PaintingId)==null)
             //{
             //    return NotFound("图集没有照片");
             //}
             var works = new Works();
+            works.RadiosId = radioId;
+            works.PaintingId = PaintingId;
+            works.UserId = Convert.ToInt32(user);
             //works.PaintingId = PaintingId;
             mapper.Map(works, workViewModel);
             entityRepositoryWorks.AddAndSave(works);

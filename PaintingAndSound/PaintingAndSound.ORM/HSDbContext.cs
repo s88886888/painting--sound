@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PaintingAndSound.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PaintingAndSound.ORM
 {
@@ -25,6 +26,24 @@ namespace PaintingAndSound.ORM
         {
             modelBuilder.Entity<UserTeam>().HasKey(a => new { a.UserId, a.TeamId });
             modelBuilder.Entity<FansAndUser>().HasKey(a => new { a.UserId, a.FansId });
+
+
+            modelBuilder.Entity<Works>().HasOne(l => l.Paintings).WithOne(l => l.Works)
+               .HasForeignKey<Works>(l => l.PaintingId);
+            modelBuilder.Entity<Works>().HasOne(l => l.Radios).WithOne(l => l.Works)
+               .HasForeignKey<Works>(l => l.RadiosId);
+
+
+
+            var foreignKeys = modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).Where(fk => fk.DeleteBehavior == DeleteBehavior.Cascade);
+            foreach (var fk in foreignKeys)
+            {
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+//            modelBuilder.Entity<Works>()
+//.HasOne(x => x.User)
+//.WithMany(x => x.Works)
+//.HasForeignKey(x => x.RadioId).OnDelete(DeleteBehavior.Restrict);
             //modelBuilder.Entity<Painting>()
             //    .HasOne(a => a.User)
             //    .WithOne(a => a.Painting)

@@ -285,10 +285,10 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<int>("PaintingId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RadiosId")
+                    b.Property<int>("RadiosId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -296,7 +296,8 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasIndex("PaintingId")
                         .IsUnique();
 
-                    b.HasIndex("RadiosId");
+                    b.HasIndex("RadiosId")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -346,13 +347,13 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.Fans", "Fans")
                         .WithMany("User")
                         .HasForeignKey("FansId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("Fans")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -361,7 +362,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("Paintings")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -370,7 +371,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.Painting", "Painting")
                         .WithMany("PaintionPhotos")
                         .HasForeignKey("PaintingId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -379,7 +380,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("Radios")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -388,7 +389,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.Radio", "Radio")
                         .WithMany("RadioMusics")
                         .HasForeignKey("RadioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -397,13 +398,13 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.Team", "Team")
                         .WithMany("UserTeams")
                         .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("UserTeams")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -412,16 +413,20 @@ namespace PaintingAndSound.ORM.Migrations
                     b.HasOne("PaintingAndSound.Entities.Painting", "Paintings")
                         .WithOne("Works")
                         .HasForeignKey("PaintingAndSound.Entities.Works", "PaintingId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("PaintingAndSound.Entities.Radio", "Radios")
-                        .WithMany()
-                        .HasForeignKey("RadiosId");
+                        .WithOne("Works")
+                        .HasForeignKey("PaintingAndSound.Entities.Works", "RadiosId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("PaintingAndSound.Entities.User", "User")
                         .WithMany("Works")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.WorksComments", b =>
