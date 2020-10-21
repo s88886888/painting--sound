@@ -81,3 +81,17 @@ C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\Pain
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csproj.CopyComplete
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csprojAssemblyReference.cache
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.AssemblyInfo.cs
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.deps.json
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.dll
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.pdb
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.dll
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\bin\Debug\netcoreapp3.1\PaintingAndSound.ORM.pdb
+C:\Users\Lzzy\Desktop\QAQ\PaintingAndSound\PaintingAndSound.DataAccess\obj\Debug\netcoreapp3.1\PaintingAndSound.DataAccess.csproj.CopyComplete

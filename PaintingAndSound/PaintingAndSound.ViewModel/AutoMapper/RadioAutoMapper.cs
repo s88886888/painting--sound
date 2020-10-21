@@ -20,6 +20,10 @@ namespace PaintingAndSound.ViewModel.AutoMapper
             CreateMap<Works, WorkViewModel>();
             CreateMap<WorkViewModel, Works>();
 
+            CreateMap<CreateWoksViewModel, Works>();
+            CreateMap<WorkViewModel, CreateWoksViewModel>();
+
+
         }
     }
 }

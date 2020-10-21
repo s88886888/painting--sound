@@ -10,10 +10,12 @@ namespace PaintingAndSound.ViewModel
         //public int Id { get; set; }
         public string Name { get; set; }
         public DateTime DateTime { get; set; }
-        public bool IsDelete { get; set; } = false;
+        public bool IsDelete { get; set; }
         //public int UserId { get; set; }
         //public int PaintingId { get; set; }
         //public int RadioId { get; set; }
+        public Radio Radios { get; set; }
+        public Painting Paintings { get; set; }
 
     }
 }

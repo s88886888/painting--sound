@@ -19,7 +19,7 @@ namespace PaintingAndSound.DataAccess.Services
         /// <returns></returns>
         public List<Painting> GetPaintingAllByUserId(int userid);
         public List<Radio> GetRadiosAllByUserId(int userid);
-        public PaintionPhotos FindbyPaintingId(int id);
+        //public PaintionPhotos FindbyPaintingId(int id);
 
 
         /// <summary>
@@ -31,7 +31,8 @@ namespace PaintingAndSound.DataAccess.Services
 
         public bool RadiosExistsByUserId(int id);
 
-
+        //public List<Painting> PaintingExistsByUserIdAndPaintingId(int UserId, int PaintingId);
+        //public List<Radio> PaintingExistsByUserIdAndradioId(int UserId, int radioId);
         /// <summary>
         /// 持久化数据
         /// </summary>

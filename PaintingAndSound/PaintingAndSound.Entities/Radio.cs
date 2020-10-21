@@ -12,7 +12,7 @@ namespace PaintingAndSound.Entities
         public int UserId { get; set; }
         public User User { get; set; }
         //public int WorksId { get; set; }
-        public Works Works { get; set; }
+        //public Works Works { get; set; }
         /// <summary>
         /// 音乐文件路径
         /// </summary>

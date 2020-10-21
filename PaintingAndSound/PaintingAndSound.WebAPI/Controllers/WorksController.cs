@@ -61,24 +61,57 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         // GET api/<WorksController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = nameof(GetWorksById))]
         public async Task<IActionResult> GetWorksById(int id)
         {
             if (!entityRepositoryWorks.WorksExists(id))
             {
                 return NotFound("没有这条作品");
             }
-            var Works = await entityRepositoryWorks.GetSingleAsyn(id);
-            var WorksViewModel = new List<WorksComments>();
-            mapper.Map(Works, WorksViewModel);
+
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+            if (user == null)
+            {
+                return NotFound("请重新登陆");
+            }
+            //var Works = await entityRepositoryWorks.GetSingleAsyn(id);
+            //if(Works.UserId== Convert.ToInt32(user))
+            //{
+            //    var WorksViewModels = mapper.Map<WorkViewModel>(Works);
+            //    WorksViewModels.Radios = Works.Radios;
+            //    WorksViewModels.Paintings = Works.Paintings;
+            //    return Ok(WorksViewModels);
+            //}
+            var userWoks =await entityRepositoryWorks.GetSingleAsyn(a=>a.UserId== Convert.ToInt32(user) && a.Id == id);
+            if (userWoks == null)
+            {
+                return NotFound("你还没有作品");
+            }
+            var WorksViewModel = mapper.Map<WorkViewModel>(userWoks);
+
+            foreach(var i in entityRepositoryRadio.GetAll())
+            {
+                if (userWoks.Radios == i)
+                {
+                    WorksViewModel.Radios = i;
+                }
+            }
+            foreach(var i in entityRepositoryPainting.GetAll())
+            {
+                if (userWoks.Paintings == i)
+                {
+                    WorksViewModel.Paintings = i;
+                }
+            }
             return Ok(WorksViewModel);
 
         }
 
         [HttpPost("AddWorks")]
-        public IActionResult AddWorks(int radioId, int PaintingId, [FromBody] WorkViewModel workViewModel)
+        public async Task<IActionResult> AddWorks(int radioId, int PaintingId, [FromBody] CreateWoksViewModel workViewModel)
         {
             var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+
 
             if (!entityRepositoryPainting.PaintingExistsByUserId(Convert.ToInt32(user)))
             {
@@ -89,22 +122,31 @@ namespace PaintingAndSound.WebAPI.Controllers
 
                 return NotFound("您没有创建过FM音频");
             }
-            //workViewModel.UserId = Convert.ToInt32(user);
-            //workViewModel.RadioId = radioId;
-            //workViewModel.PaintingId = PaintingId;
+            //判断有没有音频
+            else if (await entityRepositoryRadio.GetSingleAsyn(radioId) == null)
+            {
+                return NotFound("没有这条FM音频");
+            }
+            else if (await entityRepositoryPainting.GetSingleAsyn(PaintingId) == null)
+            {
+                return NotFound("没有这个画集");
+            }
 
-            //if (entityRepositoryPaintionPhotos.FindbyPaintingId(PaintingId)==null)
-            //{
-            //    return NotFound("图集没有照片");
-            //}
-            var works = new Works();
-            works.RadiosId = radioId;
-            works.PaintingId = PaintingId;
-            works.UserId = Convert.ToInt32(user);
-            //works.PaintingId = PaintingId;
-            mapper.Map(works, workViewModel);
-            entityRepositoryWorks.AddAndSave(works);
-            return Ok("添加成功");
+            var painting = await entityRepositoryPainting.GetSingleAsyn(PaintingId);
+            var radio = await entityRepositoryRadio.GetSingleAsyn(radioId);
+            //var works = new Works();
+            //works.Paintings = painting;
+            //works.Radios = radio;
+            //works.UserId = Convert.ToInt32(user);
+            //mapper.Map(works, workViewModel);
+
+            var woks = mapper.Map<Works>(workViewModel);
+            woks.Paintings = painting;
+            woks.Radios = radio;
+            woks.UserId = Convert.ToInt32(user);
+
+            entityRepositoryWorks.AddAndSave(woks);
+            return CreatedAtRoute(nameof(GetWorksById), new { id = woks.Id }, woks);
         }
 
 

@@ -10,7 +10,7 @@ namespace PaintingAndSound.Entities
         public string Detailed { get; set; }
         public string Image { get; set; }
 
-        public int RadioId { get; set; }
-        public Radio  Radio { get; set; }
+        //public int RadioId { get; set; }
+        //public Radio  Radio { get; set; }
     }
 }

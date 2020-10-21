@@ -377,6 +377,8 @@ namespace PaintingAndSound.DataAccess.Services
         {
             return _HSDbContext.Paintings.Any(t => t.UserId == id);
         }
+
+
         public bool RadiosExistsByUserId(int id)
         {
             return _HSDbContext.Radios.Any(t => t.UserId == id);
@@ -391,10 +393,32 @@ namespace PaintingAndSound.DataAccess.Services
             return _HSDbContext.Radios.Where(t => t.UserId == userid).ToList();
         }
 
-        public PaintionPhotos FindbyPaintingId(int id)
-        {
-            return _HSDbContext.PaintionPhotos.FirstOrDefault(t => t.PaintingId == id);
-        }
+        //public PaintionPhotos FindbyPaintingId(int id)
+        //{
+        //    return _HSDbContext.Paintings.Where(a=>a.UserId==id).ToList();
+        //}
+        //public  List<Painting> PaintingExistsByUserIdAndPaintingId(int UserId, int PaintingId)
+        //{
+        //    List<Painting> painanWorks = new List<Painting>();
+        //    foreach (var i in _HSDbContext.Works)
+        //    {
+        //        painanWorks = (List<Painting>)_HSDbContext.Paintings.Where(a => a.Works == i&&a.UserId==UserId);
+        //    }
+        //    return painanWorks;
+        //}
+        //public List<Radio> PaintingExistsByUserIdAndradioId(int UserId, int radioId)
+        //{
+        //    List<Radio> painanWorks = new List<Radio>();
+        //    foreach (var i in _HSDbContext.Users)
+        //    {
+        //        painanWorks = (List<Radio>)_HSDbContext.Radios.FirstOrDefault(i.Id == UserId);
+        //    }
+        //    //var painanradis =await _HSDbContext.Works.Where(a => a.Id == PaintingId).ToListAsync();
+        //    return painanWorks;
+        //    //return _HSDbContext.Paintings.Where(a=>a.UserId==UserId&&a.Id==_HSDbContext.Radios.)
+        //}
+
+
 
     }
 }

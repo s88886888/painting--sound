@@ -21,6 +21,8 @@ namespace PaintingAndSound.ViewModel
         public string Iamge { get; set; }
 
         public int UserId { get; set; }
+
+       
     }
 }
 

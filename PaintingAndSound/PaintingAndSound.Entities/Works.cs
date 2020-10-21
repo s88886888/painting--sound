@@ -15,14 +15,14 @@ namespace PaintingAndSound.Entities
         //    //Radios = new List<Radio>();
         //}
 
-        public int RadiosId { get; set; }
+        //public int RadiosId { get; set; }
         public Radio Radios { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         /// <summary>
         /// 作品图片
         /// </summary>
-        public int PaintingId { get; set; }
+        //public int PaintingId { get; set; }
         public Painting Paintings { get; set; }
         /// <summary>
         /// 作品评论

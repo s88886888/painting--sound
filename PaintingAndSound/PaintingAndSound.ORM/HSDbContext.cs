@@ -28,18 +28,18 @@ namespace PaintingAndSound.ORM
             modelBuilder.Entity<FansAndUser>().HasKey(a => new { a.UserId, a.FansId });
 
 
-            modelBuilder.Entity<Works>().HasOne(l => l.Paintings).WithOne(l => l.Works)
-               .HasForeignKey<Works>(l => l.PaintingId);
-            modelBuilder.Entity<Works>().HasOne(l => l.Radios).WithOne(l => l.Works)
-               .HasForeignKey<Works>(l => l.RadiosId);
+            //modelBuilder.Entity<Works>().HasOne(l => l.Paintings).WithOne(l => l.Works)
+            //   .HasForeignKey<Works>(l => l.PaintingId);
+            //modelBuilder.Entity<Works>().HasOne(l => l.Radios).WithOne(l => l.Works)
+            //   .HasForeignKey<Works>(l => l.RadiosId);
 
 
 
-            var foreignKeys = modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).Where(fk => fk.DeleteBehavior == DeleteBehavior.Cascade);
-            foreach (var fk in foreignKeys)
-            {
-                fk.DeleteBehavior = DeleteBehavior.Restrict;
-            }
+            //var foreignKeys = modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).Where(fk => fk.DeleteBehavior == DeleteBehavior.Cascade);
+            //foreach (var fk in foreignKeys)
+            //{
+            //    fk.DeleteBehavior = DeleteBehavior.Restrict;
+            //}
 //            modelBuilder.Entity<Works>()
 //.HasOne(x => x.User)
 //.WithMany(x => x.Works)
