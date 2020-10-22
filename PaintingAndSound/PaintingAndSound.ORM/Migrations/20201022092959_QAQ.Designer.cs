@@ -10,7 +10,7 @@ using PaintingAndSound.ORM;
 namespace PaintingAndSound.ORM.Migrations
 {
     [DbContext(typeof(HSDbContext))]
-    [Migration("20201021023304_QAQ")]
+    [Migration("20201022092959_QAQ")]
     partial class QAQ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,7 +110,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PaintingId")
+                    b.Property<int>("PaintingId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -368,9 +368,11 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.PaintionPhotos", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Painting", null)
+                    b.HasOne("PaintingAndSound.Entities.Painting", "Painting")
                         .WithMany("PaintionPhotos")
-                        .HasForeignKey("PaintingId");
+                        .HasForeignKey("PaintingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>

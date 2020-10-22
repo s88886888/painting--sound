@@ -172,7 +172,7 @@ namespace PaintingAndSound.ORM.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsDelete = table.Column<bool>(nullable: false),
                     ImagesUrl = table.Column<string>(nullable: true),
-                    PaintingId = table.Column<int>(nullable: true)
+                    PaintingId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -182,7 +182,7 @@ namespace PaintingAndSound.ORM.Migrations
                         column: x => x.PaintingId,
                         principalTable: "Painting",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

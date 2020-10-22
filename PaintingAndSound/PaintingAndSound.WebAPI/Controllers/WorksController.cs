@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.ViewModel;
-using PaintingAndSound.ViewModel.AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -74,14 +73,6 @@ namespace PaintingAndSound.WebAPI.Controllers
             {
                 return NotFound("请重新登陆");
             }
-            //var Works = await entityRepositoryWorks.GetSingleAsyn(id);
-            //if(Works.UserId== Convert.ToInt32(user))
-            //{
-            //    var WorksViewModels = mapper.Map<WorkViewModel>(Works);
-            //    WorksViewModels.Radios = Works.Radios;
-            //    WorksViewModels.Paintings = Works.Paintings;
-            //    return Ok(WorksViewModels);
-            //}
             var userWoks =await entityRepositoryWorks.GetSingleAsyn(a=>a.UserId== Convert.ToInt32(user) && a.Id == id);
             if (userWoks == null)
             {
@@ -131,20 +122,12 @@ namespace PaintingAndSound.WebAPI.Controllers
             {
                 return NotFound("没有这个画集");
             }
-
             var painting = await entityRepositoryPainting.GetSingleAsyn(PaintingId);
             var radio = await entityRepositoryRadio.GetSingleAsyn(radioId);
-            //var works = new Works();
-            //works.Paintings = painting;
-            //works.Radios = radio;
-            //works.UserId = Convert.ToInt32(user);
-            //mapper.Map(works, workViewModel);
-
             var woks = mapper.Map<Works>(workViewModel);
             woks.Paintings = painting;
             woks.Radios = radio;
             woks.UserId = Convert.ToInt32(user);
-
             entityRepositoryWorks.AddAndSave(woks);
             return CreatedAtRoute(nameof(GetWorksById), new { id = woks.Id }, woks);
         }

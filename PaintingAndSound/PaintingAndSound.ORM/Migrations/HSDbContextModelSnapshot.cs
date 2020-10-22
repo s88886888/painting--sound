@@ -108,7 +108,7 @@ namespace PaintingAndSound.ORM.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PaintingId")
+                    b.Property<int>("PaintingId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -366,9 +366,11 @@ namespace PaintingAndSound.ORM.Migrations
 
             modelBuilder.Entity("PaintingAndSound.Entities.PaintionPhotos", b =>
                 {
-                    b.HasOne("PaintingAndSound.Entities.Painting", null)
+                    b.HasOne("PaintingAndSound.Entities.Painting", "Painting")
                         .WithMany("PaintionPhotos")
-                        .HasForeignKey("PaintingId");
+                        .HasForeignKey("PaintingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PaintingAndSound.Entities.Radio", b =>
