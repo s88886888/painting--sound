@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -18,6 +19,7 @@ using PaintingAndSound.Entities;
 using PaintingAndSound.ORM;
 using PaintingAndSound.UserAndRole;
 using PaintingAndSound.WebAPI.JWT;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace PaintingAndSound.WebAPI
 {
@@ -29,78 +31,44 @@ namespace PaintingAndSound.WebAPI
         }
 
         public IConfiguration Configuration { get; }
+        public string ApiName { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             AppSettings.Init(Configuration);
-            services.AddControllers().AddNewtonsoftJson(setup=> {
+            services.AddControllers().AddNewtonsoftJson(setup =>
+            {
 
                 setup.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            
+
             });
 
 
             services.AddControllersWithViews();
-            // 配置使用 Sql Server 的 EF Context
             services.AddDbContext<HSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HsContext")));
-
-
             services.AddAutoMapper(Assembly.Load("PaintingAndSound.ViewModel"));
+
+
+
 
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PaintingAndSound", Version = "v1.2019.10.19" });
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Description = "在下框中输入请求头中需要添加Jwt授权Token：Bearer Token",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
+                c.SwaggerDoc("v1", new OpenApiInfo {
+                    Title = "画声博客Api这是个小项目！请不要DD攻击！",//标题
+                    Version = "v1", //版本
+                     Description = $"Linson 画声博客API v1",    //描述
+                    Contact = new OpenApiContact { Name = "Linson", Email = "", Url = new Uri("https://gitee.com/S88888888") },
+                    License = new OpenApiLicense { Name = "Linson许可证", Url = new Uri("https://gitee.com/S88888888/painting--sound") }
                 });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                    {
-                        {
-                            new OpenApiSecurityScheme{
-                                Reference = new OpenApiReference {
-                                            Type = ReferenceType.SecurityScheme,
-                                            Id = "Bearer"}
-                           },new string[] { }
-                        }
-                    });
+                var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+                //var xmlPath = Path.Combine(basePath, "PaintingAndSound.WebAPI.xml");
+                //c.IncludeXmlComments(xmlPath);
             });
 
-            services
-              .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
-              {
-                  options.TokenValidationParameters = new TokenValidationParameters
-                  {
-                      ValidIssuer = AppSettings.JwtSetting.Issuer,
-                      ValidAudience = AppSettings.JwtSetting.Audience,
-                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AppSettings.JwtSetting.SecurityKey)),
-                      // 默认允许 300s  的时间偏移量，设置为0
-                      ClockSkew = TimeSpan.Zero,
-                  };
-              });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("any",
-                    builder =>
-                    {
-                        builder.AllowAnyMethod()
-                            .AllowAnyOrigin()
-                            .AllowAnyHeader();
-                    });
-            });
+
 
             services.AddControllers();
             services.AddScoped<IUserService, UserService>();
@@ -109,8 +77,6 @@ namespace PaintingAndSound.WebAPI
             services.AddScoped<IEntityRepository<WorksComments>, EntityRepository<WorksComments>>();
             services.AddScoped<IEntityRepository<Works>, EntityRepository<Works>>();
             services.AddScoped<IEntityRepository<PaintionPhotos>, EntityRepository<PaintionPhotos>>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -124,9 +90,9 @@ namespace PaintingAndSound.WebAPI
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
+            app.UseSwaggerUI(option =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                option.SwaggerEndpoint("/swagger/v1/swagger.json", "画声API");
             });
 
             app.UseRouting();

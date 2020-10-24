@@ -10,3 +10,15 @@ C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\Pain
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CopyComplete
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.dll
 C:\Users\大大卷泡泡乐\Desktop\项目\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\bin\Release\netcoreapp3.1\PaintingAndSound.ViewModel.deps.json
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\bin\Release\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\bin\Release\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfoInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.AssemblyInfo.cs
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.csproj.CopyComplete
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.dll
+C:\Users\大大卷泡泡乐\Desktop\新建文件夹\painting--sound\PaintingAndSound\PaintingAndSound.ViewModel\obj\Release\netcoreapp3.1\PaintingAndSound.ViewModel.pdb
