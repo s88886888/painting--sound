@@ -6340,23 +6340,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\武\\.nuget\\packages\\": {},
+    "C:\\Users\\广西吴彦祖\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\PaintingAndSound.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\PaintingAndSound.WebAPI.csproj",
       "projectName": "PaintingAndSound.WebAPI",
-      "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\PaintingAndSound.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\武\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\PaintingAndSound.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\广西吴彦祖\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\武\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\广西吴彦祖\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -6370,17 +6370,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj"
+            "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj"
             },
-            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
-              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
+            "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
+              "projectPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
             },
-            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.UserAndRole\\PaintingAndSound.UserAndRole.csproj": {
-              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.UserAndRole\\PaintingAndSound.UserAndRole.csproj"
+            "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.UserAndRole\\PaintingAndSound.UserAndRole.csproj": {
+              "projectPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.UserAndRole\\PaintingAndSound.UserAndRole.csproj"
             },
-            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj": {
-              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj"
+            "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj": {
+              "projectPath": "C:\\Users\\广西吴彦祖\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ViewModel\\PaintingAndSound.ViewModel.csproj"
             }
           }
         }
@@ -6435,7 +6435,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

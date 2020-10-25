@@ -28,6 +28,9 @@ namespace PaintingAndSound.ViewModel.AutoMapper
 
             CreateMap<RadioMusic, RadioMusicViewModel>();
             CreateMap<RadioMusicViewModel, RadioMusic>();
+
+            CreateMap<User, UserViewModel>();
+            CreateMap<UserViewModel, User>();
         }
     }
 }

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaintingAndSound.DataAccess.Services;
 using PaintingAndSound.Entities;
 using PaintingAndSound.UserAndRole;
+using PaintingAndSound.ViewModel;
 using PaintingAndSound.WebAPI.Dto;
 
 namespace PaintingAndSound.WebAPI.Controllers
@@ -21,10 +23,14 @@ namespace PaintingAndSound.WebAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService userService;
+        private readonly IEntityRepository<User> entityRepositoryUser;
+        private readonly IMapper mapper;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IEntityRepository<User> entityRepositoryUser,IMapper mapper)
         {
             this.userService = userService;
+            this.entityRepositoryUser = entityRepositoryUser;
+            this.mapper = mapper;
         }
 
         /// <summary>
@@ -79,6 +85,18 @@ namespace PaintingAndSound.WebAPI.Controllers
             var user = await userService.AddUserAsync(loginParameter.UserName, loginParameter.Password);
             BaseDto<User> dto = new BaseDto<User>(Dto.StatusCode.Success, "", user);
             return Ok(dto);
+        }
+        [HttpPost]
+        public async Task<IActionResult>CreateUser(UserViewModel userViewModel)
+        {
+            if (userViewModel == null)
+            {
+                return NotFound("请从新输入");
+            }
+            var user = mapper.Map<User>(userViewModel);
+            entityRepositoryUser.Add(user);
+            await entityRepositoryUser.SaveAsyn();
+            return Ok("创建成功");
         }
     }
 
