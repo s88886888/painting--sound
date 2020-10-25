@@ -29,19 +29,25 @@ namespace PaintingAndSound.WebAPI.Controllers
         }
         // GET: api/<PaintionPhotosController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetPaintingPhotoAll()
         {
-            return new string[] { "value1", "value2" };
+            var painPhotos = await entityRepositoryPaintionPhotos.GetAllAsyn();
+            if (painPhotos == null)
+            {
+                return NotFound("没有图片，请添加图片");
+            }
+            var retupainPhoto = mapper.Map<IEnumerable<PaintionPhotosViewModel>>(painPhotos);
+            return Ok(retupainPhoto);
         }
 
         // GET api/<PaintionPhotosController>/5
-        [HttpGet("PaintingPhotosById")]
-        public async Task<IActionResult> PaintingPhotosById(int Id)
+        [HttpGet("{PaintingPhotosById}", Name = nameof(GetPaintingPhotosById))]
+        public async Task<IActionResult> GetPaintingPhotosById(int PaintingPhotosById)
         {
-            var paintingPhoto = await entityRepositoryPaintionPhotos.GetSingleAsyn(Id);
+            var paintingPhoto = await entityRepositoryPaintionPhotos.GetSingleAsyn(PaintingPhotosById);
             if (paintingPhoto == null)
             {
-                return NotFound("数据异常");
+                return NotFound("没有这张图片");
             }
 
             var paintionPhotos = mapper.Map<PaintionPhotosViewModel>(paintingPhoto);
@@ -49,10 +55,11 @@ namespace PaintingAndSound.WebAPI.Controllers
         }
 
         // POST api/<PaintionPhotosController>
-        [HttpPost("CreatePaintingPhotosAsync")]
-        public async Task<IActionResult> CreatePaintingPhotosAsync([FromQuery] int Id, [FromBody] PaintionPhotosViewModel paintionPhotosViewModel)
+        [HttpPost("{PaintingId}")]
+        public async Task<IActionResult> CreatePaintingPhotosAsync(int PaintingId, [FromBody] PaintionPhotosViewModel paintionPhotosViewModel)
         {
-            if (Id == 0)
+            var paintingPhoto = await entityRepositoryPainting.GetSingleAsyn(PaintingId);
+            if (paintingPhoto == null)
             {
                 return NotFound("没有这个画集");
             }
@@ -61,23 +68,40 @@ namespace PaintingAndSound.WebAPI.Controllers
                 return NotFound("没有数据");
             }
             var paintionPhotos = mapper.Map<PaintionPhotos>(paintionPhotosViewModel);
-            paintionPhotos.PaintingId = Id;
-             entityRepositoryPaintionPhotos.Add(paintionPhotos);
+            paintionPhotos.PaintingId = paintingPhoto.Id;
+            entityRepositoryPaintionPhotos.Add(paintionPhotos);
             await entityRepositoryPaintionPhotos.SaveAsyn();
             var paintionPhotosModels = mapper.Map<PaintionPhotosViewModel>(paintionPhotos);
-            return CreatedAtAction("PaintingPhotosById", new { paintionPhotos.Id }, paintionPhotosModels);
+            return CreatedAtRoute(nameof(GetPaintingPhotosById), new { PaintingPhotosById = paintionPhotos.Id }, paintionPhotosModels);
         }
 
         // PUT api/<PaintionPhotosController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{paintingPhotoId}")]
+        public async Task<IActionResult> UpdatePaintingPhoto(int paintingPhotoId, PaintionPhotosViewModel paintionPhotosViewModel)
         {
+            var paintingPhoto = entityRepositoryPaintionPhotos.GetSingle(paintingPhotoId);
+            if (paintingPhoto == null)
+            {
+                return NotFound("没有这张图片");
+            }
+            mapper.Map(paintionPhotosViewModel, paintingPhoto);
+            await entityRepositoryPaintionPhotos.AddOrEditAndSaveAsyn(paintingPhoto);
+            var paintionPhotosModels = mapper.Map<PaintionPhotosViewModel>(paintingPhoto);
+
+            return CreatedAtRoute(nameof(GetPaintingPhotosById), new { PaintingPhotosById = paintingPhoto.Id }, paintionPhotosModels);
         }
 
         // DELETE api/<PaintionPhotosController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{paintingPhotoId}")]
+        public async Task<IActionResult> DeletePaintingPhoto(int paintingPhotoId)
         {
+            var paintingPhoto = await entityRepositoryPaintionPhotos.GetSingleAsyn(paintingPhotoId);
+            if (paintingPhoto == null)
+            {
+                return NotFound("没有这张图片");
+            }
+            entityRepositoryPaintionPhotos.DeleteAndSave(paintingPhoto);
+            return Ok("OK");
         }
     }
 }

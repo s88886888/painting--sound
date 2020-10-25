@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PaintingAndSound.DataAccess.Services;
+using PaintingAndSound.Entities;
+using PaintingAndSound.ViewModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,36 +16,83 @@ namespace PaintingAndSound.WebAPI.Controllers
     [ApiController]
     public class RadioMusicController : ControllerBase
     {
-        // GET: api/<RadioMusicController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IEntityRepository<Radio> entityRepositoryRadio;
+        private readonly IEntityRepository<RadioMusic> entityRepositoryRadioMusic;
+        private readonly IMapper mapper;
+
+        public RadioMusicController(IEntityRepository<Radio> entityRepositoryRadio, IEntityRepository<RadioMusic> entityRepositoryRadioMusic, IMapper mapper)
         {
-            return new string[] { "value1", "value2" };
+            this.entityRepositoryRadio = entityRepositoryRadio;
+            this.entityRepositoryRadioMusic = entityRepositoryRadioMusic;
+            this.mapper = mapper;
+        }
+        // GET: api/<RadioMusicController>
+        [HttpGet("GetRadioMusicAll")]
+        public async Task<IActionResult> GetRadioMusicAll()
+        {
+            var radioMusic =await entityRepositoryRadioMusic.GetAllAsyn();
+            if (radioMusic == null)
+            {
+                return NotFound("没有FM，请添加");
+            }
+            var radioMusicViewModel = mapper.Map<IEnumerable<RadioMusicViewModel>>(radioMusic);
+            return Ok(radioMusicViewModel);
         }
 
         // GET api/<RadioMusicController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{RadioMusicId}",Name =nameof(GetRadioMusicById))]
+        public async Task<IActionResult>GetRadioMusicById(int RadioMusicId)
         {
-            return "value";
+            var radioMusic = await entityRepositoryRadioMusic.GetSingleAsyn(RadioMusicId);
+            if (radioMusic == null)
+            {
+                return NotFound("没有这条FM");
+            }
+            var radioMusicViewModel = mapper.Map<RadioMusicViewModel>(radioMusic);
+            return Ok(radioMusicViewModel);
         }
 
         // POST api/<RadioMusicController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult>CreateRadioMusic([FromBody] RadioMusicViewModel radioMusicViewModel)
         {
+            if (radioMusicViewModel == null)
+            {
+                return NotFound("请重新输入");
+            }
+            var radioMusic = mapper.Map<RadioMusic>(radioMusicViewModel);
+            entityRepositoryRadioMusic.Add(radioMusic);
+            await entityRepositoryRadioMusic.SaveAsyn();
+            //var paintionPhotosModels = mapper.Map<PaintionPhotosViewModel>(paintionPhotos);//应该不用返回View Model
+            return CreatedAtRoute(nameof(GetRadioMusicById), new { RadioMusicId = radioMusic.Id }, radioMusic);
         }
 
         // PUT api/<RadioMusicController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{RadioMusicId}")]
+        public async Task<IActionResult> UpdateRadioMusic(int RadioMusicId, [FromBody] RadioMusicViewModel radioMusicViewModel)
         {
+            var radioMusic =await entityRepositoryRadioMusic.GetSingleAsyn(RadioMusicId);
+            if (radioMusic == null)
+            {
+                return NotFound("没有这条FM");
+            }
+            mapper.Map(radioMusicViewModel, radioMusic);
+            await entityRepositoryRadioMusic.AddOrEditAndSaveAsyn(radioMusic);
+            //var paintionPhotosModels = mapper.Map<PaintionPhotosViewModel>(radioMusic);//应该用不上
+            return CreatedAtRoute(nameof(GetRadioMusicById), new { RadioMusicId = radioMusic.Id }, radioMusic);
         }
 
         // DELETE api/<RadioMusicController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{RadioMusicId}")]
+        public async Task<IActionResult>DeleteRadioMusic(int RadioMusicId)
         {
+            var radioMusic =await entityRepositoryRadioMusic.GetSingleAsyn(RadioMusicId);
+            if (radioMusic == null)
+            {
+                return NotFound("没有这条FM");
+            }
+            entityRepositoryRadioMusic.DeleteAndSave(radioMusic);
+            return Ok("OK");
         }
     }
 }

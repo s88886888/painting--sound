@@ -26,7 +26,8 @@ namespace PaintingAndSound.ViewModel.AutoMapper
             CreateMap<PaintionPhotos, PaintionPhotosViewModel>();
             CreateMap<PaintionPhotosViewModel, PaintionPhotos>();
 
-
+            CreateMap<RadioMusic, RadioMusicViewModel>();
+            CreateMap<RadioMusicViewModel, RadioMusic>();
         }
     }
 }

@@ -35,8 +35,28 @@ namespace PaintingAndSound.WebAPI.Controllers
         public async Task<IActionResult> GetRadioAll()
         {
             var radios = await entityRepositoryRadio.GetAllAsyn();
-            List<RadioViewModel> radioViewModel = new List<RadioViewModel>();
-            mapper.Map(radios, radioViewModel);
+            if (radios == null)
+            {
+                return NotFound("没有FM集，请前往添加");
+            }
+            var radioViewModel = mapper.Map<IEnumerable<RadioViewModel>>(radios);
+
+            //List<RadioViewModel> radioViewModel = new List<RadioViewModel>();
+            //mapper.Map(radios, radioViewModel);
+            return Ok(radioViewModel);
+        }
+        /// <summary>
+        /// 搜素FM的一条信息
+        /// </summary>
+        [HttpGet("{RadioId}")]
+        public async Task<IActionResult> GetRadiosById(int RadioId)
+        {
+            var radio =await entityRepositoryRadio.GetSingleAsyn(RadioId);
+            if (radio == null)
+            {
+                return NotFound("没有这部FM集");
+            }
+            var radioViewModel = mapper.Map<RadioViewModel>(radio);
             return Ok(radioViewModel);
         }
         /// <summary>
@@ -47,22 +67,27 @@ namespace PaintingAndSound.WebAPI.Controllers
         [HttpPost("CreateRadioAsync")]
         public async Task<IActionResult> CreateRadioAsync([FromBody] RadioViewModel radioViewModel)
         {
+            if (radioViewModel == null)
+            {
+                return NotFound("请从新输入");
+            }
             var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
-            radioViewModel.UserId = Convert.ToInt32(user);
-            Radio radio = new Radio();
-            mapper.Map(radioViewModel, radio);
-            await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);
-            return Ok("OK");
+            var entityRadio = mapper.Map<Radio>(radioViewModel);
+            entityRadio.UserId = Convert.ToInt32(user);
+
+            entityRepositoryRadio.Add(entityRadio);
+            await entityRepositoryRadio.SaveAsyn();
+            return CreatedAtRoute(nameof(GetRadiosById), new { RadioId = entityRadio.Id }, entityRadio);
         }
         /// <summary>
         /// 删除模块
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> DeleteRadioAsync(int Id)
+        [HttpDelete("{RadioId}")]
+        public async Task<IActionResult> DeleteRadioAsync(int RadioId)
         {
-            var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
+            var radio = await entityRepositoryRadio.GetSingleAsyn(RadioId);
             if (radio == null)
             {
                 return NotFound();
@@ -73,41 +98,22 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// <summary>
         /// 局部更新
         /// </summary>
-        /// <param name="Id"></param>
-        /// <param name="patchDocument"></param>
         /// <returns></returns>
-        [HttpPatch("{Id}")]
-        public async Task<IActionResult> UpdateRadioAsync(int Id, JsonPatchDocument<RadioViewModel> patchDocument)
+        [HttpPatch("{RadioId}")]
+        public async Task<IActionResult> UpdateRadioAsync(int RadioId, [FromBody]RadioViewModel radioViewModel)
         {
-            var radio = await entityRepositoryRadio.GetSingleAsyn(Id);
+            var radio = await entityRepositoryRadio.GetSingleAsyn(RadioId);
             if (radio == null)
             {
-                return NotFound();
+                return NotFound("没有这部FM集");
             }
-            var dtoToPatch = mapper.Map<RadioViewModel>(radio);
-            patchDocument.ApplyTo(dtoToPatch);
-
-            mapper.Map(dtoToPatch, radio);
-            entityRepositoryRadio.Edit(radio);
-            await entityRepositoryRadio.SaveAsyn();
-
-            return NoContent();
+            mapper.Map(radioViewModel, radio);
+            await entityRepositoryRadio.AddOrEditAndSaveAsyn(radio);
+            //var paintionPhotosModels = mapper.Map<PaintionPhotosViewModel>(radio);//应该不用
+            return CreatedAtRoute(nameof(GetRadiosById), new { RadioId = radio.Id }, radio);
         }
-        /// <summary>
-        /// 搜素FM的一条信息
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        public IActionResult GetRadiosById(int id)
-        {
-            if (!entityRepositoryRadio.PaintingExists(id))
-            {
-                return NotFound("找不到该幅画");
-            }
-            var painting = entityRepositoryRadio.GetSingle(id);
-            return Ok(painting);
-        }
+        
+
 
 
 

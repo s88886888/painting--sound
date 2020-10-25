@@ -5686,25 +5686,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\": {},
-    "D:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\武\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
       "projectName": "PaintingAndSound.DataAccess",
-      "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\PaintingAndSound.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\武\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\大大卷泡泡乐\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\武\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5718,11 +5716,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj": {
-              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj"
+            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj": {
+              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.Entities\\PaintingAndSound.Entities.csproj"
             },
-            "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
-              "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\新建文件夹\\painting--sound\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
+            "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj": {
+              "projectPath": "C:\\Users\\武\\Desktop\\QAQ\\PaintingAndSound\\PaintingAndSound.ORM\\PaintingAndSound.ORM.csproj"
             }
           }
         }
@@ -5750,7 +5748,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

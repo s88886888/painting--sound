@@ -38,13 +38,18 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// 获取所有的画画
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("GetPaintingAll")]
         public async Task<IActionResult> GetPaintingAll()
         {
             var Paintings = await entityRepositoryPainting.GetAllAsyn();
-            List<PaintingViewModel> PaintingViewModel = new List<PaintingViewModel>();
-            mapper.Map(Paintings, PaintingViewModel);
-            return Ok(PaintingViewModel);
+            if (Paintings == null)
+            {
+                return NotFound();
+            }
+            var PaintingsViewModel = mapper.Map<IEnumerable<PaintingViewModel>>(Paintings);
+            //List<PaintingViewModel> PaintingViewModel = new List<PaintingViewModel>();
+            //mapper.Map(Paintings, PaintingViewModel);
+            return Ok(PaintingsViewModel);
         }
         /// <summary>
         /// 增加一个画集
@@ -56,11 +61,12 @@ namespace PaintingAndSound.WebAPI.Controllers
         {
 
             var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
-            Painting painting = new Painting();
-            paintingViewModel.UserId = Convert.ToInt32(user);
-            mapper.Map(paintingViewModel, painting);
-            await entityRepositoryPainting.AddOrEditAndSaveAsyn(painting);
-            return Ok("OK");
+
+            var Painting = mapper.Map<Painting>(paintingViewModel);
+            Painting.UserId = Convert.ToInt32(user);
+            entityRepositoryPainting.Add(Painting);
+            await entityRepositoryPainting.SaveAsyn();
+            return CreatedAtRoute(nameof(GetPaintingById), new { PaintingById = Painting.Id }, Painting);
 
         }
         /// <summary>
@@ -68,11 +74,10 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpDelete]
-
-        public async Task<IActionResult> DeletePaintingAsync(int Id)
+        [HttpDelete("{PaintingId}")]
+        public async Task<IActionResult> DeletePaintingAsync(int PaintingId)
         {
-            var Painting = await entityRepositoryPainting.GetSingleAsyn(Id);
+            var Painting = await entityRepositoryPainting.GetSingleAsyn(PaintingId);
             if (Painting == null)
             {
                 return NotFound();
@@ -80,17 +85,27 @@ namespace PaintingAndSound.WebAPI.Controllers
             entityRepositoryPainting.DeleteAndSave(Painting);
             return Ok("Ok");
         }
-        [HttpPatch]//局部更新
-        public async Task<IActionResult> UpdatePaintingAsync([FromBody] PaintingViewModel paintingViewModel)
+        [HttpPut("{PaintingId}")]//局部更新
+        public async Task<IActionResult> UpdatePaintingAsync(int PaintingId, [FromBody] PaintingViewModel paintingViewModel)
         {
             if (paintingViewModel == null)
             {
                 return NotFound();
             }
-            Painting painting = new Painting();
-            mapper.Map(paintingViewModel, painting);
-            await entityRepositoryPainting.AddOrEditAndSaveAsyn(painting);//如果数据库中有就增加，没有就修改
-            return Ok("Ok");
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+
+            var Painting = await entityRepositoryPainting.GetSingleAsyn(PaintingId);
+            if (Painting == null)
+            {
+                return NotFound("没有这个画集");
+            }
+            Painting.UserId = Convert.ToInt32(user);
+            mapper.Map(paintingViewModel, Painting);
+            await entityRepositoryPainting.AddOrEditAndSaveAsyn(Painting);
+            //var paintionPhotosModels = mapper.Map<PaintingViewModel>(Painting);
+
+            return CreatedAtRoute(nameof(GetPaintingById), new { PaintingById = Painting.Id }, Painting);
+
         }
         /// <summary>
         /// 添加评论
@@ -98,68 +113,47 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// <param name="paintingCommentViewModels"></param>
         /// <returns></returns>
 
-        [HttpPost("CreatePaintingCommenAsync")]
-        public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingCommentViewModel paintingCommentViewModels)
-        {
-            //前端给出具体的画Id----进行评论
-            var paintions = await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
-            var paintingCommentViewModel = new PaintingCommentViewModel();
-            var paintingComment = new WorksComments();
-            if (paintions == null)
-            {
-                return Ok("没有这幅画");
-            }
-            else
-            {
-                //获取当前登入tokon的Id string类型
-                var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
-                paintingComment.User.Id = Convert.ToInt32(user);
-                paintingCommentViewModel.PaintingId = paintions.Id;
-                paintingCommentViewModel.Name = paintingCommentViewModels.Name;
-                paintingCommentViewModel.Comments = paintingCommentViewModels.Comments;
-                paintingCommentViewModel.DateTime = paintingCommentViewModels.DateTime;
-            }
-            mapper.Map(paintingCommentViewModel, paintingComment);
-            entityRepositoryPaintingComment.Add(paintingComment);
-            await entityRepositoryPaintingComment.SaveAsyn();
-            return Ok("评论成功");
-        }
+        //[HttpPost("CreatePaintingCommenAsync")]
+        //public async Task<IActionResult> CreatePaintingCommenAsync([FromBody] PaintingCommentViewModel paintingCommentViewModels)
+        //{
+        //    //前端给出具体的画Id----进行评论
+        //    var paintions = await entityRepositoryPainting.GetSingleAsyn(a => a.Id == paintingCommentViewModels.PaintingId);
+        //    var paintingCommentViewModel = new PaintingCommentViewModel();
+        //    var paintingComment = new WorksComments();
+        //    if (paintions == null)
+        //    {
+        //        return Ok("没有这幅画");
+        //    }
+        //    else
+        //    {
+        //        //获取当前登入tokon的Id string类型
+        //        var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+        //        paintingComment.User.Id = Convert.ToInt32(user);
+        //        paintingCommentViewModel.PaintingId = paintions.Id;
+        //        paintingCommentViewModel.Name = paintingCommentViewModels.Name;
+        //        paintingCommentViewModel.Comments = paintingCommentViewModels.Comments;
+        //        paintingCommentViewModel.DateTime = paintingCommentViewModels.DateTime;
+        //    }
+        //    mapper.Map(paintingCommentViewModel, paintingComment);
+        //    entityRepositoryPaintingComment.Add(paintingComment);
+        //    await entityRepositoryPaintingComment.SaveAsyn();
+        //    return Ok("评论成功");
+        //}
         /// <summary>
         /// 搜素一条画的信息            
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        public IActionResult GetPaintingById(int id)
+        [HttpGet("{PaintingById}", Name = nameof(GetPaintingById))]
+        public async Task<IActionResult> GetPaintingById(int PaintingById)
         {
-            if (!entityRepositoryPainting.PaintingExists(id))
+            if (!entityRepositoryPainting.PaintingExists(PaintingById))
             {
                 return NotFound("找不到该幅画");
             }
-            var painting = entityRepositoryPainting.GetSingle(id);
+            var painting = await entityRepositoryPainting.GetSingleAsyn(PaintingById);
 
             return Ok(painting);
         }
-        ///// <summary>
-        ///// 搜素画的照片
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public async Task<IActionResult> GetPaintingByPhoto(int id)
-        //{
-        //    if (!entityRepositoryPainting.PaintingExists(id))
-        //    {
-        //        return NotFound("找不到该幅画");
-        //    }
-        //    var painting = entityRepositoryPainting.GetSingle(id);
-        //    if (painting == null)
-        //    {
-        //        return NotFound("找不到该幅画");
-        //    }
-
-
-
-        //    return Ok(painting);
-        //}
     }
 }

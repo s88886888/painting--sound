@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using PaintingAndSound.DataAccess.Services;
+using PaintingAndSound.Entities;
+using PaintingAndSound.ORM;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +17,28 @@ namespace PaintingAndSound.WebAPI.Controllers
     [ApiController]
     public class FansController : ControllerBase
     {
+        private readonly IEntityRepository<Fans> entityRepositoryFans;
+        private readonly HSDbContext hSDbContext;
+        private readonly IMapper mapper;
+
+        public FansController(IEntityRepository<Fans> entityRepositoryFans, HSDbContext hSDbContext, IMapper mapper)
+        {
+            this.entityRepositoryFans = entityRepositoryFans;
+            this.hSDbContext = hSDbContext;
+            this.mapper = mapper;
+        }
         // GET: api/<FansController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetFansAll()
         {
-            return new string[] { "value1", "value2" };
+            var user = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(a => a.Type.Equals("id"))?.Value;
+            var User = hSDbContext.FansAndUsers.Where(a => a.UserId == Convert.ToInt32(user));
+            if (User == null)
+            {
+                return NotFound("你还没有粉丝");
+            }
+            return Ok(User);
+
         }
 
         // GET api/<FansController>/5
