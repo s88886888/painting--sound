@@ -12,7 +12,7 @@ namespace PaintingAndSound.ViewModel
         /// </summary>
         public string Name { get; set; }
         //是否删除
-        public bool IsDelete { get; set; };
+        public bool IsDelete { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         /// <summary>

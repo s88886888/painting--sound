@@ -80,14 +80,14 @@ namespace PaintingAndSound.WebAPI.Controllers
         /// <param name="loginParameter"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<BaseDto<User>>> Add(LoginParameter loginParameter)
+        public async Task<ActionResult<BaseDto<User>>> Login(LoginParameter loginParameter)
         {
             var user = await userService.AddUserAsync(loginParameter.UserName, loginParameter.Password);
             BaseDto<User> dto = new BaseDto<User>(Dto.StatusCode.Success, "", user);
             return Ok(dto);
         }
-        [HttpPost]
-        public async Task<IActionResult>CreateUser(UserViewModel userViewModel)
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult>CreateUser([FromBody]UserViewModel userViewModel)
         {
             if (userViewModel == null)
             {

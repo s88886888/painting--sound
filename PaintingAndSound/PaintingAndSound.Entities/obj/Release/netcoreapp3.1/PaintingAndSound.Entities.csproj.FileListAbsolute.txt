@@ -25,3 +25,12 @@ C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.csproj.CoreCompileInputs.cache
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.dll
 C:\Users\武\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.deps.json
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\bin\Release\netcoreapp3.1\PaintingAndSound.Entities.pdb
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.csprojAssemblyReference.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.AssemblyInfoInputs.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.AssemblyInfo.cs
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.csproj.CoreCompileInputs.cache
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.dll
+C:\Users\广西吴彦祖\Desktop\QAQ\PaintingAndSound\PaintingAndSound.Entities\obj\Release\netcoreapp3.1\PaintingAndSound.Entities.pdb
