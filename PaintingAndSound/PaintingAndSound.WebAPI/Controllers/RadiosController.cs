@@ -16,7 +16,6 @@ namespace PaintingAndSound.WebAPI.Controllers
     //[Produces("application/josn")]
     [Route("api/radio")]
     [ApiController]
-    [Authorize]
     public class RadiosController : ControllerBase
     {
         private readonly IEntityRepository<Radio> entityRepositoryRadio;
